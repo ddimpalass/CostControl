@@ -13,6 +13,18 @@
 		2F3198B526468CA000836ECF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198B426468CA000836ECF /* Preview Assets.xcassets */; };
 		2F3198B726468CA000836ECF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198B626468CA000836ECF /* Persistence.swift */; };
 		2F3198BA26468CA000836ECF /* Spend.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198B826468CA000836ECF /* Spend.xcdatamodeld */; };
+		2F3198C9264693CF00836ECF /* PoiretOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198C6264693CF00836ECF /* PoiretOne-Regular.ttf */; };
+		2F3198CA264693CF00836ECF /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198C7264693CF00836ECF /* Roboto-Light.ttf */; };
+		2F3198CB264693CF00836ECF /* DIN Condensed Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198C8264693CF00836ECF /* DIN Condensed Bold.ttf */; };
+		2F3198CE2646946000836ECF /* LineOfSpend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198CD2646946000836ECF /* LineOfSpend.swift */; };
+		2F3198D02646966E00836ECF /* ListOfSpends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198CF2646966E00836ECF /* ListOfSpends.swift */; };
+		2F3198D32646989100836ECF /* CardOfPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198D22646989100836ECF /* CardOfPeriod.swift */; };
+		2F3198D526469E1200836ECF /* PeriodMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198D426469E1200836ECF /* PeriodMainScreen.swift */; };
+		2F3198D82646A18500836ECF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198D72646A18500836ECF /* CustomButton.swift */; };
+		2F3198DB2646A72900836ECF /* AddSpend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198DA2646A72900836ECF /* AddSpend.swift */; };
+		2F3198DD2646A73200836ECF /* AddPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198DC2646A73200836ECF /* AddPeriod.swift */; };
+		2F3198DF2646AB0E00836ECF /* LineOfPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198DE2646AB0E00836ECF /* LineOfPeriod.swift */; };
+		2F3198E12646B1A600836ECF /* ListOfPeriods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E02646B1A600836ECF /* ListOfPeriods.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +36,18 @@
 		2F3198B626468CA000836ECF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		2F3198B926468CA000836ECF /* Spend.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Spend.xcdatamodel; sourceTree = "<group>"; };
 		2F3198BB26468CA000836ECF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F3198C6264693CF00836ECF /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
+		2F3198C7264693CF00836ECF /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		2F3198C8264693CF00836ECF /* DIN Condensed Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Condensed Bold.ttf"; sourceTree = "<group>"; };
+		2F3198CD2646946000836ECF /* LineOfSpend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineOfSpend.swift; sourceTree = "<group>"; };
+		2F3198CF2646966E00836ECF /* ListOfSpends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfSpends.swift; sourceTree = "<group>"; };
+		2F3198D22646989100836ECF /* CardOfPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOfPeriod.swift; sourceTree = "<group>"; };
+		2F3198D426469E1200836ECF /* PeriodMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodMainScreen.swift; sourceTree = "<group>"; };
+		2F3198D72646A18500836ECF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		2F3198DA2646A72900836ECF /* AddSpend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpend.swift; sourceTree = "<group>"; };
+		2F3198DC2646A73200836ECF /* AddPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeriod.swift; sourceTree = "<group>"; };
+		2F3198DE2646AB0E00836ECF /* LineOfPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineOfPeriod.swift; sourceTree = "<group>"; };
+		2F3198E02646B1A600836ECF /* ListOfPeriods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfPeriods.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +80,10 @@
 		2F3198AC26468C9F00836ECF /* Spend */ = {
 			isa = PBXGroup;
 			children = (
-				2F3198AD26468C9F00836ECF /* SpendApp.swift */,
-				2F3198AF26468C9F00836ECF /* ContentView.swift */,
-				2F3198B126468CA000836ECF /* Assets.xcassets */,
-				2F3198B626468CA000836ECF /* Persistence.swift */,
-				2F3198BB26468CA000836ECF /* Info.plist */,
-				2F3198B826468CA000836ECF /* Spend.xcdatamodeld */,
+				2F3198C426468D2000836ECF /* Model */,
+				2F3198C326468D0B00836ECF /* Views */,
+				2F3198C226468CE600836ECF /* Resourses */,
+				2F3198C126468CCF00836ECF /* Supporting Files */,
 				2F3198B326468CA000836ECF /* Preview Content */,
 			);
 			path = Spend;
@@ -73,6 +95,92 @@
 				2F3198B426468CA000836ECF /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2F3198C126468CCF00836ECF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2F3198BB26468CA000836ECF /* Info.plist */,
+				2F3198C5264693B300836ECF /* Fonts */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2F3198C226468CE600836ECF /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				2F3198B126468CA000836ECF /* Assets.xcassets */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		2F3198C326468D0B00836ECF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F3198AD26468C9F00836ECF /* SpendApp.swift */,
+				2F3198AF26468C9F00836ECF /* ContentView.swift */,
+				2F3198D92646A70700836ECF /* AddScreens */,
+				2F3198D12646986E00836ECF /* Period */,
+				2F3198CC2646944C00836ECF /* Spend */,
+				2F3198D62646A15100836ECF /* Custom Views */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2F3198C426468D2000836ECF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F3198B826468CA000836ECF /* Spend.xcdatamodeld */,
+				2F3198B626468CA000836ECF /* Persistence.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2F3198C5264693B300836ECF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2F3198C8264693CF00836ECF /* DIN Condensed Bold.ttf */,
+				2F3198C6264693CF00836ECF /* PoiretOne-Regular.ttf */,
+				2F3198C7264693CF00836ECF /* Roboto-Light.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2F3198CC2646944C00836ECF /* Spend */ = {
+			isa = PBXGroup;
+			children = (
+				2F3198CD2646946000836ECF /* LineOfSpend.swift */,
+				2F3198CF2646966E00836ECF /* ListOfSpends.swift */,
+			);
+			path = Spend;
+			sourceTree = "<group>";
+		};
+		2F3198D12646986E00836ECF /* Period */ = {
+			isa = PBXGroup;
+			children = (
+				2F3198D426469E1200836ECF /* PeriodMainScreen.swift */,
+				2F3198D22646989100836ECF /* CardOfPeriod.swift */,
+				2F3198DE2646AB0E00836ECF /* LineOfPeriod.swift */,
+				2F3198E02646B1A600836ECF /* ListOfPeriods.swift */,
+			);
+			path = Period;
+			sourceTree = "<group>";
+		};
+		2F3198D62646A15100836ECF /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F3198D72646A18500836ECF /* CustomButton.swift */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		2F3198D92646A70700836ECF /* AddScreens */ = {
+			isa = PBXGroup;
+			children = (
+				2F3198DA2646A72900836ECF /* AddSpend.swift */,
+				2F3198DC2646A73200836ECF /* AddPeriod.swift */,
+			);
+			path = AddScreens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,8 +240,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3198CB264693CF00836ECF /* DIN Condensed Bold.ttf in Resources */,
 				2F3198B526468CA000836ECF /* Preview Assets.xcassets in Resources */,
 				2F3198B226468CA000836ECF /* Assets.xcassets in Resources */,
+				2F3198CA264693CF00836ECF /* Roboto-Light.ttf in Resources */,
+				2F3198C9264693CF00836ECF /* PoiretOne-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,9 +256,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F3198BA26468CA000836ECF /* Spend.xcdatamodeld in Sources */,
+				2F3198D526469E1200836ECF /* PeriodMainScreen.swift in Sources */,
+				2F3198D82646A18500836ECF /* CustomButton.swift in Sources */,
+				2F3198D02646966E00836ECF /* ListOfSpends.swift in Sources */,
+				2F3198DB2646A72900836ECF /* AddSpend.swift in Sources */,
 				2F3198B726468CA000836ECF /* Persistence.swift in Sources */,
+				2F3198D32646989100836ECF /* CardOfPeriod.swift in Sources */,
 				2F3198B026468C9F00836ECF /* ContentView.swift in Sources */,
+				2F3198DD2646A73200836ECF /* AddPeriod.swift in Sources */,
+				2F3198DF2646AB0E00836ECF /* LineOfPeriod.swift in Sources */,
+				2F3198CE2646946000836ECF /* LineOfSpend.swift in Sources */,
 				2F3198AE26468C9F00836ECF /* SpendApp.swift in Sources */,
+				2F3198E12646B1A600836ECF /* ListOfPeriods.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +399,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Spend/Preview Content\"";
 				DEVELOPMENT_TEAM = KFL2ZFQWR4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Spend/Info.plist;
+				INFOPLIST_FILE = "Spend/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -301,7 +421,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Spend/Preview Content\"";
 				DEVELOPMENT_TEAM = KFL2ZFQWR4;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = Spend/Info.plist;
+				INFOPLIST_FILE = "Spend/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
