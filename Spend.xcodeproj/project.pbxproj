@@ -25,6 +25,10 @@
 		2F3198DD2646A73200836ECF /* AddPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198DC2646A73200836ECF /* AddPeriod.swift */; };
 		2F3198DF2646AB0E00836ECF /* LineOfPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198DE2646AB0E00836ECF /* LineOfPeriod.swift */; };
 		2F3198E12646B1A600836ECF /* ListOfPeriods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E02646B1A600836ECF /* ListOfPeriods.swift */; };
+		2F3198E62646D2BE00836ECF /* Spend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E22646D2BE00836ECF /* Spend+CoreDataClass.swift */; };
+		2F3198E72646D2BE00836ECF /* Spend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E32646D2BE00836ECF /* Spend+CoreDataProperties.swift */; };
+		2F3198E82646D2BE00836ECF /* Period+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E42646D2BE00836ECF /* Period+CoreDataClass.swift */; };
+		2F3198E92646D2BE00836ECF /* Period+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E52646D2BE00836ECF /* Period+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		2F3198DC2646A73200836ECF /* AddPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeriod.swift; sourceTree = "<group>"; };
 		2F3198DE2646AB0E00836ECF /* LineOfPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineOfPeriod.swift; sourceTree = "<group>"; };
 		2F3198E02646B1A600836ECF /* ListOfPeriods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfPeriods.swift; sourceTree = "<group>"; };
+		2F3198E22646D2BE00836ECF /* Spend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spend+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2F3198E32646D2BE00836ECF /* Spend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spend+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2F3198E42646D2BE00836ECF /* Period+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Period+CoreDataClass.swift"; sourceTree = "<group>"; };
+		2F3198E52646D2BE00836ECF /* Period+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Period+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +140,10 @@
 			children = (
 				2F3198B826468CA000836ECF /* Spend.xcdatamodeld */,
 				2F3198B626468CA000836ECF /* Persistence.swift */,
+				2F3198E22646D2BE00836ECF /* Spend+CoreDataClass.swift */,
+				2F3198E32646D2BE00836ECF /* Spend+CoreDataProperties.swift */,
+				2F3198E42646D2BE00836ECF /* Period+CoreDataClass.swift */,
+				2F3198E52646D2BE00836ECF /* Period+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -255,16 +267,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F3198E62646D2BE00836ECF /* Spend+CoreDataClass.swift in Sources */,
 				2F3198BA26468CA000836ECF /* Spend.xcdatamodeld in Sources */,
 				2F3198D526469E1200836ECF /* PeriodMainScreen.swift in Sources */,
 				2F3198D82646A18500836ECF /* CustomButton.swift in Sources */,
 				2F3198D02646966E00836ECF /* ListOfSpends.swift in Sources */,
+				2F3198E72646D2BE00836ECF /* Spend+CoreDataProperties.swift in Sources */,
 				2F3198DB2646A72900836ECF /* AddSpend.swift in Sources */,
 				2F3198B726468CA000836ECF /* Persistence.swift in Sources */,
 				2F3198D32646989100836ECF /* CardOfPeriod.swift in Sources */,
 				2F3198B026468C9F00836ECF /* ContentView.swift in Sources */,
 				2F3198DD2646A73200836ECF /* AddPeriod.swift in Sources */,
 				2F3198DF2646AB0E00836ECF /* LineOfPeriod.swift in Sources */,
+				2F3198E92646D2BE00836ECF /* Period+CoreDataProperties.swift in Sources */,
+				2F3198E82646D2BE00836ECF /* Period+CoreDataClass.swift in Sources */,
 				2F3198CE2646946000836ECF /* LineOfSpend.swift in Sources */,
 				2F3198AE26468C9F00836ECF /* SpendApp.swift in Sources */,
 				2F3198E12646B1A600836ECF /* ListOfPeriods.swift in Sources */,

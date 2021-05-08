@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PeriodMainScreen: View {
-    @Binding var showingPeriodMainScreen: Bool
+    @Environment(\.managedObjectContext) var viewContext
     @State var showingAddSpendScreen = false
     
     let period: Period
@@ -17,14 +17,14 @@ struct PeriodMainScreen: View {
         GeometryReader { geometry in
             ZStack {
                 ScrollView(.vertical, showsIndicators: false) {
-                    CardOfPeriod(showingPeriodMainScreen: $showingPeriodMainScreen,
-                                 name: period.name ?? "Название",
+                    CardOfPeriod(name: period.name ?? "Название",
                                  dayLimit: "\(period.limit / 10)",
                                  periodLimit: "\(period.limit)")
                         .frame(width: geometry.size.width,
                                height: geometry.size.height)
                         .padding(.top, geometry.safeAreaInsets.top - geometry.size.height + 250)
-                    ListOfSpends(spends: [])
+                    Spacer(minLength: 20)
+                    ListOfSpends(spends: period.spendsArray)
                 }
                 .background(Color.init(.systemGroupedBackground))
                 .ignoresSafeArea()
@@ -32,6 +32,9 @@ struct PeriodMainScreen: View {
                     Spacer()
                     CustomButton(systemName: "cart.badge.plus", color: .gray, foregroundColor: .white) {
                         showingAddSpendScreen.toggle()
+                    }
+                    .sheet(isPresented: $showingAddSpendScreen) {
+                        AddSpend(period: period).environment(\.managedObjectContext, viewContext)
                     }
                 }
             }
@@ -41,8 +44,7 @@ struct PeriodMainScreen: View {
 
 struct PeriodMainScreen_Previews: PreviewProvider {
     static var previews: some View {
-        PeriodMainScreen(showingPeriodMainScreen: .constant(false), 
-                         showingAddSpendScreen: false,
+        PeriodMainScreen(showingAddSpendScreen: false,
                          period: Period())
     }
 }

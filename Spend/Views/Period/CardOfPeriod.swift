@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CardOfPeriod: View {
-    @Binding var showingPeriodMainScreen: Bool
+    @Environment(\.presentationMode) private var presentationMode
     
     let name: String
     let dayLimit: String
@@ -20,7 +20,7 @@ struct CardOfPeriod: View {
             VStack {
                 Spacer()
                 HStack {
-                    Button(action: {showingPeriodMainScreen.toggle()}) {
+                    Button(action: { presentationMode.wrappedValue.dismiss() }) {
                         Image.init(systemName: "chevron.backward.circle")
                             .resizable()
                             .scaledToFit()
@@ -61,6 +61,6 @@ struct CardOfPeriod: View {
 
 struct CardOfPeriod_Previews: PreviewProvider {
     static var previews: some View {
-        CardOfPeriod(showingPeriodMainScreen: .constant(false), name: "Псков", dayLimit: "5000", periodLimit: "40000")
+        CardOfPeriod(name: "Псков", dayLimit: "5000", periodLimit: "40000")
     }
 }
