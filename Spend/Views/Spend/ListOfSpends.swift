@@ -12,7 +12,7 @@ struct ListOfSpends: View {
     
     var body: some View {
         VStack() {
-            ForEach(spends) { spend in
+            ForEach(spends, id: \.self) { spend in
                 LineOfSpend(name: spend.name ?? "Empty",
                             time: dateFormatter.string(from: spend.date ?? Date()),
                             cost: "\(spend.cost)")

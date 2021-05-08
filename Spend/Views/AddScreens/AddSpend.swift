@@ -23,7 +23,7 @@ struct AddSpend: View {
                 .padding(10)
                 .background(Color.white)
                 .cornerRadius(10)
-            TextField("Сумма траты", value: $cost, formatter: NumberFormatter())
+            TextField("Сумма траты", text: $cost)
                 .font(.custom("Roboto-Light", size: 24))
                 .padding(10)
                 .background(Color.white)
