@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2F3198AE26468C9F00836ECF /* SpendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198AD26468C9F00836ECF /* SpendApp.swift */; };
-		2F3198B026468C9F00836ECF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198AF26468C9F00836ECF /* ContentView.swift */; };
 		2F3198B226468CA000836ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198B126468CA000836ECF /* Assets.xcassets */; };
 		2F3198B526468CA000836ECF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198B426468CA000836ECF /* Preview Assets.xcassets */; };
 		2F3198B726468CA000836ECF /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198B626468CA000836ECF /* Persistence.swift */; };
@@ -29,12 +28,12 @@
 		2F3198E72646D2BE00836ECF /* Spend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E32646D2BE00836ECF /* Spend+CoreDataProperties.swift */; };
 		2F3198E82646D2BE00836ECF /* Period+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E42646D2BE00836ECF /* Period+CoreDataClass.swift */; };
 		2F3198E92646D2BE00836ECF /* Period+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E52646D2BE00836ECF /* Period+CoreDataProperties.swift */; };
+		2F60C1952647E3CD005D3C81 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F60C1942647E3CD005D3C81 /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2F3198AA26468C9F00836ECF /* Spend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3198AD26468C9F00836ECF /* SpendApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendApp.swift; sourceTree = "<group>"; };
-		2F3198AF26468C9F00836ECF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2F3198B126468CA000836ECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2F3198B426468CA000836ECF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2F3198B626468CA000836ECF /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -56,6 +55,7 @@
 		2F3198E32646D2BE00836ECF /* Spend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spend+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2F3198E42646D2BE00836ECF /* Period+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Period+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2F3198E52646D2BE00836ECF /* Period+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Period+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2F60C1942647E3CD005D3C81 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,10 +126,9 @@
 			isa = PBXGroup;
 			children = (
 				2F3198AD26468C9F00836ECF /* SpendApp.swift */,
-				2F3198AF26468C9F00836ECF /* ContentView.swift */,
-				2F3198D92646A70700836ECF /* AddScreens */,
 				2F3198D12646986E00836ECF /* Period */,
 				2F3198CC2646944C00836ECF /* Spend */,
+				2F3198D92646A70700836ECF /* AddScreens */,
 				2F3198D62646A15100836ECF /* Custom Views */,
 			);
 			path = Views;
@@ -182,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				2F3198D72646A18500836ECF /* CustomButton.swift */,
+				2F60C1942647E3CD005D3C81 /* CustomTextField.swift */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
@@ -275,8 +275,8 @@
 				2F3198E72646D2BE00836ECF /* Spend+CoreDataProperties.swift in Sources */,
 				2F3198DB2646A72900836ECF /* AddSpend.swift in Sources */,
 				2F3198B726468CA000836ECF /* Persistence.swift in Sources */,
+				2F60C1952647E3CD005D3C81 /* CustomTextField.swift in Sources */,
 				2F3198D32646989100836ECF /* CardOfPeriod.swift in Sources */,
-				2F3198B026468C9F00836ECF /* ContentView.swift in Sources */,
 				2F3198DD2646A73200836ECF /* AddPeriod.swift in Sources */,
 				2F3198DF2646AB0E00836ECF /* LineOfPeriod.swift in Sources */,
 				2F3198E92646D2BE00836ECF /* Period+CoreDataProperties.swift in Sources */,
@@ -424,7 +424,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ddimpalass.Spend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -446,7 +446,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ddimpalass.Spend;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -17,8 +17,13 @@ struct LineOfPeriod: View {
                 VStack(alignment: .leading){
                     Text(period.name ?? "Название")
                         .font(.custom("Roboto-Light", size: 24))
-                    Text("\(period.limit)").baselineOffset(-10)
-                        .font(.custom("DIN Condensed Bold", size: 36))
+                    HStack(alignment: .lastTextBaseline) {
+                        Text("\(period.spendsArray.map({$0.cost}).reduce(0, +))")
+                            .font(.custom("DIN Condensed Bold", size: 36))
+                        Text("/\(period.limit)")
+                            .font(.custom("Roboto-Light", size: 24))
+                    }
+                    .padding(.top, 4)
                 }
                 Spacer()
                 Image(systemName: "chevron.right.circle")

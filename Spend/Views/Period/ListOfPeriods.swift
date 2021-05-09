@@ -16,7 +16,7 @@ struct ListOfPeriods: View {
     @State var showingAddPeriodScreen = false
     
     @State private var selectedPeriod: Period? = nil
-
+    
     var body: some View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
@@ -31,7 +31,7 @@ struct ListOfPeriods: View {
                     
                 }
             }
-            .background(Color.init(.systemGroupedBackground))
+            .background(Color.init(#colorLiteral(red: 0.9500349164, green: 0.9501938224, blue: 0.9500139356, alpha: 1)))
             .ignoresSafeArea()
             VStack {
                 Spacer()
@@ -46,8 +46,3 @@ struct ListOfPeriods: View {
     }
 }
 
-//struct ListOfPeriods_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ListOfPeriods(periods: [])
-//    }
-//}

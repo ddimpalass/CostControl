@@ -19,14 +19,14 @@ struct PeriodMainScreen: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     CardOfPeriod(name: period.name ?? "Название",
                                  dayLimit: "\(period.limit / 10)",
-                                 periodLimit: "\(period.limit)")
+                                 periodLimit: "\(period.limit - period.spendsArray.map({$0.cost}).reduce(0, +))")
                         .frame(width: geometry.size.width,
                                height: geometry.size.height)
                         .padding(.top, geometry.safeAreaInsets.top - geometry.size.height + 250)
                     Spacer(minLength: 20)
                     ListOfSpends(spends: period.spendsArray)
                 }
-                .background(Color.init(.systemGroupedBackground))
+                .background(Color.init(#colorLiteral(red: 0.9500349164, green: 0.9501938224, blue: 0.9500139356, alpha: 1)))
                 .ignoresSafeArea()
                 VStack {
                     Spacer()

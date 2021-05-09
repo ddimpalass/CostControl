@@ -16,22 +16,12 @@ struct AddPeriod: View {
     @State private var numberOfDays: String = ""
 
     var body: some View {
-        VStack {
-            TextField("Название периода", text: $name)
-                .font(.custom("Roboto-Light", size: 24))
-                .padding(10)
-                .background(Color.white)
-                .cornerRadius(10)
-            TextField("Лимит периода", text: $limit)
-                .font(.custom("Roboto-Light", size: 24))
-                .padding(10)
-                .background(Color.white)
-                .cornerRadius(10)
-            TextField("На сколько дней", text: $numberOfDays)
-                .font(.custom("Roboto-Light", size: 24))
-                .padding(10)
-                .background(Color.white)
-                .cornerRadius(10)
+        VStack(spacing: -16) {
+            CustomTextField(text: $name, placeholder: "Название периода")
+            CustomTextField(text: $limit, placeholder: "Лимит периода")
+                .keyboardType(.numberPad)
+            CustomTextField(text: $numberOfDays, placeholder: "На сколько дней")
+                .keyboardType(.numberPad)
             CustomButton(systemName: "plus", color: .white, foregroundColor: .gray, action: {
                 presentationMode.wrappedValue.dismiss()
                 
@@ -44,9 +34,10 @@ struct AddPeriod: View {
                                                        to: newPeriod.startDate!)!
                 PersistenceController.shared.save()
             })
+            .padding()
             Spacer()
+
         }
-        .padding()
         .background(Color.gray)
         .ignoresSafeArea()
     }

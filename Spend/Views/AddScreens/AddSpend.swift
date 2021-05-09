@@ -17,17 +17,10 @@ struct AddSpend: View {
     @State private var cost: String = ""
     
     var body: some View {
-        VStack {
-            TextField("Название траты", text: $name)
-                .font(.custom("Roboto-Light", size: 24))
-                .padding(10)
-                .background(Color.white)
-                .cornerRadius(10)
-            TextField("Сумма траты", text: $cost)
-                .font(.custom("Roboto-Light", size: 24))
-                .padding(10)
-                .background(Color.white)
-                .cornerRadius(10)
+        VStack(spacing: -16) {
+            CustomTextField(text: $name, placeholder: "Название траты")
+            CustomTextField(text: $cost, placeholder: "Сумма траты")
+                .keyboardType(.numberPad)
             CustomButton(systemName: "plus", color: .white, foregroundColor: .gray, action: {
                 presentationMode.wrappedValue.dismiss()
                 
@@ -40,9 +33,9 @@ struct AddSpend: View {
                 
                 PersistenceController.shared.save()
             })
+            .padding()
             Spacer()
         }
-        .padding()
         .background(Color.gray)
         .ignoresSafeArea()
     }
