@@ -9,36 +9,28 @@ import SwiftUI
 
 struct ListOfSpends: View {
     @Environment(\.managedObjectContext) var viewContext
-    @State var showingAddSpendScreen = false
     
-    let spends: [Spend]
+    let spendsDict: Dictionary<String, [Spend]>
+    
+    @State private var selectedSpend: Spend? = nil
 
     var body: some View {
         VStack() {
-            ForEach(gropedByDate(spends: spends).sorted(by: {$0.key > $1.key}), id: \.key) { date, spends in
+            ForEach(spendsDict.sorted(by: {$0.key > $1.key}), id: \.key) { date, spends in
                 Section(header: Header(date: date, costSum: "\(spends.map({$0.cost}).reduce(0, +))")){
                     ForEach(spends, id: \.self) { spend in
-                        LineOfSpend(action: { showingAddSpendScreen.toggle() },
+                        LineOfSpend(action: { selectedSpend = spend },
                                     name: spend.name ?? "Название",
                                     time: dateFormatterForTime.string(from: spend.date ?? Date()),
                                     cost: "\(spend.cost)")
-                            .sheet(isPresented: $showingAddSpendScreen) {
-                                AddSpend(period: spend.period!).environment(\.managedObjectContext, viewContext)
+                            .sheet(item: $selectedSpend) { spend in
+                                AddSpend(period: spend.period!, spend: spend).environment(\.managedObjectContext, viewContext)
                             }
                     }
                 }
                 
             }
         }
-    }
-
-    func gropedByDate(spends: [Spend]) -> Dictionary<String, [Spend]> {
-        let sortedSpends = spends.sorted(by: {$0.date! > $1.date!})
-        
-        let groupedByDate = Dictionary(grouping: sortedSpends) { (spend: Spend) -> String in
-            dateFormatterForDate.string(from: spend.date ?? Date())
-        }
-        return groupedByDate
     }
 }
 
@@ -69,12 +61,5 @@ private let dateFormatterForTime: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .none
     formatter.timeStyle = .short
-    return formatter
-}()
-
-private let dateFormatterForDate: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateFormat = "d MMM, E"
-    formatter.locale = Locale(identifier: Locale.preferredLanguages.first!)
     return formatter
 }()

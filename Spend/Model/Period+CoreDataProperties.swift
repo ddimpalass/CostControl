@@ -25,7 +25,6 @@ extension Period {
     
     public var spendsArray: [Spend] {
         let set = spends as? Set<Spend> ?? []
-        
         return Array(set)
     }
 

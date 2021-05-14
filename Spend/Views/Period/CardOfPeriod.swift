@@ -11,6 +11,8 @@ struct CardOfPeriod: View {
     @Environment(\.presentationMode) private var presentationMode
     
     let name: String
+    let dayNow: String
+    let dayCount: String
     let dayLimit: String
     let periodLimit: String
     
@@ -30,19 +32,21 @@ struct CardOfPeriod: View {
                     Spacer()
                     Circle()
                     Spacer()
-                    Button(action: {}) {
-                        Image.init(systemName: "arrow.up.arrow.down.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 30, height: 30)
-                            .padding()
+                    HStack(alignment: .firstTextBaseline, spacing: 0) {
+                        Text("\(dayNow)")
+                            .font(.custom("DIN Condensed Bold", size: 32))
+                            .padding(.top, 8)
+                        Text("/\(dayCount)")
+                            .font(.custom("Roboto-Light", size: 16))
                     }
+                    .frame(width: 30, height: 30)
+                    .padding()
                 }
                 .frame(height: 60)
                 .padding()
-                Text(name)
-                    .font(.custom("Roboto-Light", size: 24))
-                HStack(alignment: .firstTextBaseline) {
+                Text(name + " ")
+                    .font(.custom("Roboto-Light", size: 32))
+                HStack(alignment: .firstTextBaseline, spacing: 0) {
                     Text("\(dayLimit)")
                         .font(.custom("DIN Condensed Bold", size: 64))
                         .padding(.top, 16)
@@ -61,6 +65,6 @@ struct CardOfPeriod: View {
 
 struct CardOfPeriod_Previews: PreviewProvider {
     static var previews: some View {
-        CardOfPeriod(name: "Псков", dayLimit: "5000", periodLimit: "40000")
+        CardOfPeriod(name: "Псков",dayNow: "1", dayCount: "3", dayLimit: "5000", periodLimit: "40000")
     }
 }

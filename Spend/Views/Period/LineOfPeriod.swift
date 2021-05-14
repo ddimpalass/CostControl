@@ -18,7 +18,7 @@ struct LineOfPeriod: View {
                     Text(period.name ?? "Название")
                         .font(.custom("Roboto-Light", size: 24))
                     HStack(alignment: .lastTextBaseline) {
-                        Text("\(period.spendsArray.map({$0.cost}).reduce(0, +))")
+                        Text("\(period.limit - period.spendsArray.map({$0.cost}).reduce(0, +))")
                             .font(.custom("DIN Condensed Bold", size: 36))
                         Text("/\(period.limit)")
                             .font(.custom("Roboto-Light", size: 24))
