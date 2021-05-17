@@ -1,5 +1,5 @@
 //
-//  ListOfPeriods.swift
+//  PeriodListView.swift
 //  Spend
 //
 //  Created by Дмитрий on 08.05.2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ListOfPeriods: View {
+struct PeriodListView: View {
     @Environment(\.managedObjectContext) var viewContext
     
     @FetchRequest(entity: Period.entity(), sortDescriptors: [])
@@ -23,9 +23,9 @@ struct ListOfPeriods: View {
                 Spacer(minLength: 50)
                 VStack(spacing: 16) {
                     ForEach(periods, id: \.self) { period in
-                        LineOfPeriod(action: { selectedPeriod = period }, period: period)
+                        PeriodLineView(action: { selectedPeriod = period }, period: period)
                             .fullScreenCover(item: $selectedPeriod) { period in
-                                PeriodMainScreen(period: period).environment(\.managedObjectContext, viewContext)
+                                PeriodMainScreenView(viewModel: PeriodMainScreenViewModel(period: period)).environment(\.managedObjectContext, viewContext)
                             }
                     }
                     

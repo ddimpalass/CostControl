@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189EA230264EAE3500F503DB /* SpendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA22F264EAE3500F503DB /* SpendListViewModel.swift */; };
+		189EA23426501BE200F503DB /* PeriodMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA23326501BE200F503DB /* PeriodMainScreenViewModel.swift */; };
+		189EA23A26501E1400F503DB /* PeriodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA23926501E1400F503DB /* PeriodListViewModel.swift */; };
+		189EA24226529C1400F503DB /* SpendHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA24126529C1400F503DB /* SpendHeaderViewModel.swift */; };
+		189EA24526529C3500F503DB /* SpendHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA24426529C3500F503DB /* SpendHeaderView.swift */; };
+		189EA24826529C4A00F503DB /* SpendLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA24726529C4A00F503DB /* SpendLineViewModel.swift */; };
 		2F3198AE26468C9F00836ECF /* SpendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198AD26468C9F00836ECF /* SpendApp.swift */; };
 		2F3198B226468CA000836ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198B126468CA000836ECF /* Assets.xcassets */; };
 		2F3198B526468CA000836ECF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198B426468CA000836ECF /* Preview Assets.xcassets */; };
@@ -15,15 +21,15 @@
 		2F3198C9264693CF00836ECF /* PoiretOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198C6264693CF00836ECF /* PoiretOne-Regular.ttf */; };
 		2F3198CA264693CF00836ECF /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198C7264693CF00836ECF /* Roboto-Light.ttf */; };
 		2F3198CB264693CF00836ECF /* DIN Condensed Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198C8264693CF00836ECF /* DIN Condensed Bold.ttf */; };
-		2F3198CE2646946000836ECF /* LineOfSpend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198CD2646946000836ECF /* LineOfSpend.swift */; };
-		2F3198D02646966E00836ECF /* ListOfSpends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198CF2646966E00836ECF /* ListOfSpends.swift */; };
-		2F3198D32646989100836ECF /* CardOfPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198D22646989100836ECF /* CardOfPeriod.swift */; };
-		2F3198D526469E1200836ECF /* PeriodMainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198D426469E1200836ECF /* PeriodMainScreen.swift */; };
+		2F3198CE2646946000836ECF /* SpendLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198CD2646946000836ECF /* SpendLineView.swift */; };
+		2F3198D02646966E00836ECF /* SpendListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198CF2646966E00836ECF /* SpendListView.swift */; };
+		2F3198D32646989100836ECF /* PeriodCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198D22646989100836ECF /* PeriodCardView.swift */; };
+		2F3198D526469E1200836ECF /* PeriodMainScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198D426469E1200836ECF /* PeriodMainScreenView.swift */; };
 		2F3198D82646A18500836ECF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198D72646A18500836ECF /* CustomButton.swift */; };
 		2F3198DB2646A72900836ECF /* AddSpend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198DA2646A72900836ECF /* AddSpend.swift */; };
 		2F3198DD2646A73200836ECF /* AddPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198DC2646A73200836ECF /* AddPeriod.swift */; };
-		2F3198DF2646AB0E00836ECF /* LineOfPeriod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198DE2646AB0E00836ECF /* LineOfPeriod.swift */; };
-		2F3198E12646B1A600836ECF /* ListOfPeriods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E02646B1A600836ECF /* ListOfPeriods.swift */; };
+		2F3198DF2646AB0E00836ECF /* PeriodLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198DE2646AB0E00836ECF /* PeriodLineView.swift */; };
+		2F3198E12646B1A600836ECF /* PeriodListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E02646B1A600836ECF /* PeriodListView.swift */; };
 		2F3198E62646D2BE00836ECF /* Spend+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E22646D2BE00836ECF /* Spend+CoreDataClass.swift */; };
 		2F3198E72646D2BE00836ECF /* Spend+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E32646D2BE00836ECF /* Spend+CoreDataProperties.swift */; };
 		2F3198E82646D2BE00836ECF /* Period+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198E42646D2BE00836ECF /* Period+CoreDataClass.swift */; };
@@ -32,6 +38,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		189EA22F264EAE3500F503DB /* SpendListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendListViewModel.swift; sourceTree = "<group>"; };
+		189EA23326501BE200F503DB /* PeriodMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodMainScreenViewModel.swift; sourceTree = "<group>"; };
+		189EA23926501E1400F503DB /* PeriodListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodListViewModel.swift; sourceTree = "<group>"; };
+		189EA24126529C1400F503DB /* SpendHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendHeaderViewModel.swift; sourceTree = "<group>"; };
+		189EA24426529C3500F503DB /* SpendHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendHeaderView.swift; sourceTree = "<group>"; };
+		189EA24726529C4A00F503DB /* SpendLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendLineViewModel.swift; sourceTree = "<group>"; };
 		2F3198AA26468C9F00836ECF /* Spend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3198AD26468C9F00836ECF /* SpendApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendApp.swift; sourceTree = "<group>"; };
 		2F3198B126468CA000836ECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -42,15 +54,15 @@
 		2F3198C6264693CF00836ECF /* PoiretOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "PoiretOne-Regular.ttf"; sourceTree = "<group>"; };
 		2F3198C7264693CF00836ECF /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		2F3198C8264693CF00836ECF /* DIN Condensed Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Condensed Bold.ttf"; sourceTree = "<group>"; };
-		2F3198CD2646946000836ECF /* LineOfSpend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineOfSpend.swift; sourceTree = "<group>"; };
-		2F3198CF2646966E00836ECF /* ListOfSpends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfSpends.swift; sourceTree = "<group>"; };
-		2F3198D22646989100836ECF /* CardOfPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardOfPeriod.swift; sourceTree = "<group>"; };
-		2F3198D426469E1200836ECF /* PeriodMainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodMainScreen.swift; sourceTree = "<group>"; };
+		2F3198CD2646946000836ECF /* SpendLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendLineView.swift; sourceTree = "<group>"; };
+		2F3198CF2646966E00836ECF /* SpendListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendListView.swift; sourceTree = "<group>"; };
+		2F3198D22646989100836ECF /* PeriodCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodCardView.swift; sourceTree = "<group>"; };
+		2F3198D426469E1200836ECF /* PeriodMainScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodMainScreenView.swift; sourceTree = "<group>"; };
 		2F3198D72646A18500836ECF /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		2F3198DA2646A72900836ECF /* AddSpend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpend.swift; sourceTree = "<group>"; };
 		2F3198DC2646A73200836ECF /* AddPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPeriod.swift; sourceTree = "<group>"; };
-		2F3198DE2646AB0E00836ECF /* LineOfPeriod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineOfPeriod.swift; sourceTree = "<group>"; };
-		2F3198E02646B1A600836ECF /* ListOfPeriods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListOfPeriods.swift; sourceTree = "<group>"; };
+		2F3198DE2646AB0E00836ECF /* PeriodLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodLineView.swift; sourceTree = "<group>"; };
+		2F3198E02646B1A600836ECF /* PeriodListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodListView.swift; sourceTree = "<group>"; };
 		2F3198E22646D2BE00836ECF /* Spend+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spend+CoreDataClass.swift"; sourceTree = "<group>"; };
 		2F3198E32646D2BE00836ECF /* Spend+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Spend+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		2F3198E42646D2BE00836ECF /* Period+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Period+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -69,6 +81,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		189EA24A26529C5400F503DB /* SpendList */ = {
+			isa = PBXGroup;
+			children = (
+				189EA22F264EAE3500F503DB /* SpendListViewModel.swift */,
+				2F3198CF2646966E00836ECF /* SpendListView.swift */,
+			);
+			path = SpendList;
+			sourceTree = "<group>";
+		};
+		189EA24B26529C6400F503DB /* SpendLine */ = {
+			isa = PBXGroup;
+			children = (
+				189EA24726529C4A00F503DB /* SpendLineViewModel.swift */,
+				2F3198CD2646946000836ECF /* SpendLineView.swift */,
+			);
+			path = SpendLine;
+			sourceTree = "<group>";
+		};
+		189EA24D26529C7000F503DB /* SpendHeader */ = {
+			isa = PBXGroup;
+			children = (
+				189EA24126529C1400F503DB /* SpendHeaderViewModel.swift */,
+				189EA24426529C3500F503DB /* SpendHeaderView.swift */,
+			);
+			path = SpendHeader;
+			sourceTree = "<group>";
+		};
 		2F3198A126468C9F00836ECF = {
 			isa = PBXGroup;
 			children = (
@@ -160,8 +199,9 @@
 		2F3198CC2646944C00836ECF /* Spend */ = {
 			isa = PBXGroup;
 			children = (
-				2F3198CD2646946000836ECF /* LineOfSpend.swift */,
-				2F3198CF2646966E00836ECF /* ListOfSpends.swift */,
+				189EA24A26529C5400F503DB /* SpendList */,
+				189EA24D26529C7000F503DB /* SpendHeader */,
+				189EA24B26529C6400F503DB /* SpendLine */,
 			);
 			path = Spend;
 			sourceTree = "<group>";
@@ -169,10 +209,12 @@
 		2F3198D12646986E00836ECF /* Period */ = {
 			isa = PBXGroup;
 			children = (
-				2F3198D426469E1200836ECF /* PeriodMainScreen.swift */,
-				2F3198D22646989100836ECF /* CardOfPeriod.swift */,
-				2F3198DE2646AB0E00836ECF /* LineOfPeriod.swift */,
-				2F3198E02646B1A600836ECF /* ListOfPeriods.swift */,
+				189EA23326501BE200F503DB /* PeriodMainScreenViewModel.swift */,
+				2F3198D426469E1200836ECF /* PeriodMainScreenView.swift */,
+				2F3198D22646989100836ECF /* PeriodCardView.swift */,
+				2F3198DE2646AB0E00836ECF /* PeriodLineView.swift */,
+				2F3198E02646B1A600836ECF /* PeriodListView.swift */,
+				189EA23926501E1400F503DB /* PeriodListViewModel.swift */,
 			);
 			path = Period;
 			sourceTree = "<group>";
@@ -269,21 +311,27 @@
 			files = (
 				2F3198E62646D2BE00836ECF /* Spend+CoreDataClass.swift in Sources */,
 				2F3198BA26468CA000836ECF /* Spend.xcdatamodeld in Sources */,
-				2F3198D526469E1200836ECF /* PeriodMainScreen.swift in Sources */,
+				2F3198D526469E1200836ECF /* PeriodMainScreenView.swift in Sources */,
 				2F3198D82646A18500836ECF /* CustomButton.swift in Sources */,
-				2F3198D02646966E00836ECF /* ListOfSpends.swift in Sources */,
+				2F3198D02646966E00836ECF /* SpendListView.swift in Sources */,
 				2F3198E72646D2BE00836ECF /* Spend+CoreDataProperties.swift in Sources */,
 				2F3198DB2646A72900836ECF /* AddSpend.swift in Sources */,
 				2F3198B726468CA000836ECF /* Persistence.swift in Sources */,
 				2F60C1952647E3CD005D3C81 /* CustomTextField.swift in Sources */,
-				2F3198D32646989100836ECF /* CardOfPeriod.swift in Sources */,
+				2F3198D32646989100836ECF /* PeriodCardView.swift in Sources */,
 				2F3198DD2646A73200836ECF /* AddPeriod.swift in Sources */,
-				2F3198DF2646AB0E00836ECF /* LineOfPeriod.swift in Sources */,
+				2F3198DF2646AB0E00836ECF /* PeriodLineView.swift in Sources */,
 				2F3198E92646D2BE00836ECF /* Period+CoreDataProperties.swift in Sources */,
+				189EA230264EAE3500F503DB /* SpendListViewModel.swift in Sources */,
 				2F3198E82646D2BE00836ECF /* Period+CoreDataClass.swift in Sources */,
-				2F3198CE2646946000836ECF /* LineOfSpend.swift in Sources */,
+				2F3198CE2646946000836ECF /* SpendLineView.swift in Sources */,
 				2F3198AE26468C9F00836ECF /* SpendApp.swift in Sources */,
-				2F3198E12646B1A600836ECF /* ListOfPeriods.swift in Sources */,
+				189EA24826529C4A00F503DB /* SpendLineViewModel.swift in Sources */,
+				189EA24226529C1400F503DB /* SpendHeaderViewModel.swift in Sources */,
+				189EA23426501BE200F503DB /* PeriodMainScreenViewModel.swift in Sources */,
+				2F3198E12646B1A600836ECF /* PeriodListView.swift in Sources */,
+				189EA24526529C3500F503DB /* SpendHeaderView.swift in Sources */,
+				189EA23A26501E1400F503DB /* PeriodListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

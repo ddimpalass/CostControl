@@ -13,7 +13,7 @@ struct SpendApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ListOfPeriods()
+            PeriodListView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }

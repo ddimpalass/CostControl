@@ -34,8 +34,12 @@ struct AddSpend: View {
                 presentationMode.wrappedValue.dismiss()
                 
                 if spend != nil {
-                    spend?.name = name
-                    spend?.cost = Int32(cost) ?? 0
+                    period.removeFromSpends(spend!)
+                    let newSpend = Spend(context: viewContext)
+                    newSpend.name = name
+                    newSpend.cost = Int32(cost) ?? 0
+                    newSpend.date = spend?.date
+                    period.addToSpends(newSpend)
                 } else {
                     let newSpend = Spend(context: viewContext)
                     newSpend.name = name
@@ -44,6 +48,8 @@ struct AddSpend: View {
                     
                     period.addToSpends(newSpend)
                 }
+                
+                
                 
                 PersistenceController.shared.save()
             })

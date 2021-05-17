@@ -1,5 +1,5 @@
 //
-//  LineOfSpend.swift
+//  SpendLineView.swift
 //  Spend
 //
 //  Created by Дмитрий on 08.05.2021.
@@ -7,24 +7,21 @@
 
 import SwiftUI
 
-struct LineOfSpend: View {
-    let action: () -> Void
-    let name: String
-    let time: String
-    let cost: String
-    
+struct SpendLineView: View {
+    @Environment(\.managedObjectContext) var viewContext
+    @ObservedObject var viewModel: SpendLineViewModel
     
     var body: some View {
-        Button(action: action, label: {
+        Button(action: viewModel.selectSpendButtonPressed, label: {
             HStack {
                 VStack(alignment: .leading) {
-                    Text(name)
+                    Text(viewModel.name)
                         .font(.custom("Roboto-Light", size: 24))
-                    Text(time)
+                    Text(viewModel.time)
                         .font(.custom("Roboto-Light", size: 14))
                 }
                 Spacer()
-                Text(cost).baselineOffset(-10)
+                Text(viewModel.cost).baselineOffset(-10)
                     .font(.custom("DIN Condensed Bold", size: 36))
             }
             .padding()
@@ -37,14 +34,9 @@ struct LineOfSpend: View {
                     y: 2)
             .padding(.horizontal)
         })
+        .sheet(item: $viewModel.selectedSpend) { spend in
+            AddSpend(period: spend.period!, spend: spend).environment(\.managedObjectContext, viewContext)
+        }
     }
 }
 
-struct LineOfSpend_Previews: PreviewProvider {
-    static var previews: some View {
-        LineOfSpend(action: {},
-                    name: "Купил что-то",
-                    time: "11:32",
-                    cost: "430")
-    }
-}

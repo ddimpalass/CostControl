@@ -1,5 +1,5 @@
 //
-//  LineOfPeriod.swift
+//  PeriodLineView.swift
 //  Spend
 //
 //  Created by Дмитрий on 08.05.2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct LineOfPeriod: View {
+struct PeriodLineView: View {
     let action: () -> Void
     let period: Period
     
@@ -47,6 +47,6 @@ struct LineOfPeriod: View {
 
 struct LineOfPeriod_Previews: PreviewProvider {
     static var previews: some View {
-        LineOfPeriod(action: {}, period: Period())
+        PeriodLineView(action: {}, period: Period())
     }
 }

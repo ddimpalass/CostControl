@@ -1,5 +1,5 @@
 //
-//  CardOfPeriod.swift
+//  PeriodCardView.swift
 //  Spend
 //
 //  Created by Дмитрий on 08.05.2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CardOfPeriod: View {
+struct PeriodCardView: View {
     @Environment(\.presentationMode) private var presentationMode
     
     let name: String
@@ -65,6 +65,6 @@ struct CardOfPeriod: View {
 
 struct CardOfPeriod_Previews: PreviewProvider {
     static var previews: some View {
-        CardOfPeriod(name: "Псков",dayNow: "1", dayCount: "3", dayLimit: "5000", periodLimit: "40000")
+        PeriodCardView(name: "Псков",dayNow: "1", dayCount: "3", dayLimit: "5000", periodLimit: "40000")
     }
 }
