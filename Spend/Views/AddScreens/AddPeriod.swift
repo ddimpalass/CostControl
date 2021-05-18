@@ -32,6 +32,7 @@ struct AddPeriod: View {
                 newPeriod.endDate =  Calendar.current.date(byAdding: .day,
                                                        value: Int(numberOfDays) ?? 0,
                                                        to: newPeriod.startDate!)!
+                
                 PersistenceController.shared.save()
             })
             .padding()

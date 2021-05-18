@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SpendHeaderView: View {
-    var viewModel: SpendHeaderViewModel
+    @ObservedObject var viewModel: SpendHeaderViewModel
 
     var body: some View {
         HStack(alignment: .firstTextBaseline) {

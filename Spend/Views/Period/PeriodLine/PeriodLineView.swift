@@ -8,19 +8,19 @@
 import SwiftUI
 
 struct PeriodLineView: View {
-    let action: () -> Void
-    let period: Period
+    @Environment(\.managedObjectContext) var viewContext
+    @ObservedObject var viewModel: PeriodLineViewModel
     
     var body: some View {
-        Button(action: action, label: {
+        Button(action: viewModel.selectPeriodButtonPressed , label: {
             HStack {
                 VStack(alignment: .leading){
-                    Text(period.name ?? "Название")
+                    Text(viewModel.name)
                         .font(.custom("Roboto-Light", size: 24))
                     HStack(alignment: .lastTextBaseline) {
-                        Text("\(period.limit - period.spendsArray.map({$0.cost}).reduce(0, +))")
+                        Text(viewModel.balance)
                             .font(.custom("DIN Condensed Bold", size: 36))
-                        Text("/\(period.limit)")
+                        Text(viewModel.limit)
                             .font(.custom("Roboto-Light", size: 24))
                     }
                     .padding(.top, 4)
@@ -41,12 +41,9 @@ struct PeriodLineView: View {
                     y: 2)
             .padding(.horizontal)
         })
+        .fullScreenCover(item: $viewModel.selectedPeriod) { period in
+            PeriodMainScreenView(viewModel: PeriodMainScreenViewModel(period: period)).environment(\.managedObjectContext, viewContext)
+        }
     }
 }
 
-
-struct LineOfPeriod_Previews: PreviewProvider {
-    static var previews: some View {
-        PeriodLineView(action: {}, period: Period())
-    }
-}

@@ -31,7 +31,6 @@ struct AddSpend: View {
             CustomTextField(text: $cost, placeholder: "Сумма траты")
                 .keyboardType(.numberPad)
             CustomButton(systemName: "plus", color: .white, foregroundColor: .gray, action: {
-                presentationMode.wrappedValue.dismiss()
                 
                 if spend != nil {
                     period.removeFromSpends(spend!)
@@ -48,10 +47,9 @@ struct AddSpend: View {
                     
                     period.addToSpends(newSpend)
                 }
-                
-                
-                
+
                 PersistenceController.shared.save()
+                
             })
             .padding()
             Spacer()

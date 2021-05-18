@@ -14,21 +14,15 @@ struct PeriodListView: View {
     var periods: FetchedResults<Period>
     
     @State var showingAddPeriodScreen = false
-    
-    @State private var selectedPeriod: Period? = nil
-    
+
     var body: some View {
         ZStack {
             ScrollView(.vertical, showsIndicators: false) {
                 Spacer(minLength: 50)
                 VStack(spacing: 16) {
                     ForEach(periods, id: \.self) { period in
-                        PeriodLineView(action: { selectedPeriod = period }, period: period)
-                            .fullScreenCover(item: $selectedPeriod) { period in
-                                PeriodMainScreenView(viewModel: PeriodMainScreenViewModel(period: period)).environment(\.managedObjectContext, viewContext)
-                            }
+                        PeriodLineView(viewModel: PeriodLineViewModel(period: period))
                     }
-                    
                 }
             }
             .background(Color.init(#colorLiteral(red: 0.9500349164, green: 0.9501938224, blue: 0.9500139356, alpha: 1)))

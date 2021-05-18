@@ -10,11 +10,7 @@ import SwiftUI
 struct PeriodCardView: View {
     @Environment(\.presentationMode) private var presentationMode
     
-    let name: String
-    let dayNow: String
-    let dayCount: String
-    let dayLimit: String
-    let periodLimit: String
+    var viewModel: PeriodCardViewModel
     
     var body: some View {
         HStack {
@@ -33,10 +29,10 @@ struct PeriodCardView: View {
                     Circle()
                     Spacer()
                     HStack(alignment: .firstTextBaseline, spacing: 0) {
-                        Text("\(dayNow)")
+                        Text(viewModel.dayNow)
                             .font(.custom("DIN Condensed Bold", size: 32))
                             .padding(.top, 8)
-                        Text("/\(dayCount)")
+                        Text(viewModel.dayCount)
                             .font(.custom("Roboto-Light", size: 16))
                     }
                     .frame(width: 30, height: 30)
@@ -44,13 +40,14 @@ struct PeriodCardView: View {
                 }
                 .frame(height: 60)
                 .padding()
-                Text(name + " ")
+                Text(viewModel.name)
                     .font(.custom("Roboto-Light", size: 32))
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
-                    Text("\(dayLimit)")
+                    // DayLimit!!
+                    Text(viewModel.periodLimit)
                         .font(.custom("DIN Condensed Bold", size: 64))
                         .padding(.top, 16)
-                    Text("/\(periodLimit)")
+                    Text(viewModel.periodLimit)
                         .font(.custom("Roboto-Light", size: 24))
                 }
             }
@@ -63,8 +60,4 @@ struct PeriodCardView: View {
     }
 }
 
-struct CardOfPeriod_Previews: PreviewProvider {
-    static var previews: some View {
-        PeriodCardView(name: "Псков",dayNow: "1", dayCount: "3", dayLimit: "5000", periodLimit: "40000")
-    }
-}
+
