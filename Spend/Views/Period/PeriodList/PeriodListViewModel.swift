@@ -9,9 +9,11 @@ import Foundation
 import SwiftUI
 
 protocol PeriodListViewModelProtocol {
-    
+    var periods: [Period] { get }
 }
 
 class PeriodListViewModel: PeriodListViewModelProtocol, ObservableObject{
-
+    
+    @Published var periods: [Period] = []
+    
 }

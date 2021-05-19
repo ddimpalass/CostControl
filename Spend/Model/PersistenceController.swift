@@ -22,6 +22,16 @@ struct PersistenceController {
         })
     }
     
+//    func getAllPeriods() -> [Period] {
+//        let request: NSFetchRequest<Period> = Period.fetchRequest()
+//        
+//        do {
+//            return try container.viewContext.fetch(request)
+//        } catch {
+//            return []
+//        }
+//    }
+    
     func save(completion: @escaping (Error?) -> () = {_ in}) {
         let context = container.viewContext
         if context.hasChanges {

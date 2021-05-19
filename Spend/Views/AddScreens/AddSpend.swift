@@ -49,7 +49,6 @@ struct AddSpend: View {
                 }
 
                 PersistenceController.shared.save()
-                
             })
             .padding()
             Spacer()
@@ -59,8 +58,3 @@ struct AddSpend: View {
     }
 }
 
-struct AddSpend_Previews: PreviewProvider {
-    static var previews: some View {
-        AddSpend(period: Period(), spend: nil)
-    }
-}
