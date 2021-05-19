@@ -9,12 +9,10 @@ import SwiftUI
 
 @main
 struct SpendApp: App {
-    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             PeriodListView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

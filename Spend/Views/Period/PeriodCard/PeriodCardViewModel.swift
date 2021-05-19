@@ -28,7 +28,7 @@ class PeriodCardViewModel: PeriodCardViewModelProtocol, ObservableObject {
     }
     
     var dayCount: String {
-        "\(dayInPeriod(start: period.startDate!, end: period.endDate!))"
+        "/\(dayInPeriod(start: period.startDate!, end: period.endDate!))"
     }
     
 //    var dayLimit: String {
@@ -36,7 +36,7 @@ class PeriodCardViewModel: PeriodCardViewModelProtocol, ObservableObject {
 //    }
     
     var periodLimit: String {
-        "\(period.limit/(dayInPeriod(start: period.startDate!, end: period.endDate!)))"
+        "/\(period.limit/(dayInPeriod(start: period.startDate!, end: period.endDate!)))"
     }
     
     private let period: Period

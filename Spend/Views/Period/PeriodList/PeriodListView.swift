@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct PeriodListView: View {
-    @Environment(\.managedObjectContext) var viewContext
     
-    @FetchRequest(entity: Period.entity(), sortDescriptors: [])
-    var periods: FetchedResults<Period>
+    @StateObject private var viewModel = PeriodListViewModel()
     
     @State var showingAddPeriodScreen = false
 
@@ -20,7 +18,7 @@ struct PeriodListView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 Spacer(minLength: 50)
                 VStack(spacing: 16) {
-                    ForEach(periods, id: \.self) { period in
+                    ForEach(viewModel.periods, id: \.self) { period in
                         PeriodLineView(viewModel: PeriodLineViewModel(period: period))
                     }
                 }
@@ -33,7 +31,7 @@ struct PeriodListView: View {
                     showingAddPeriodScreen.toggle()
                 }
                 .sheet(isPresented: $showingAddPeriodScreen) {
-                    AddPeriod().environment(\.managedObjectContext, viewContext)
+                    AddPeriod()
                 }
             }
         }

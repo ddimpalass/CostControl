@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddPeriod: View {
-    @Environment(\.managedObjectContext) var viewContext
     @Environment(\.presentationMode) private var presentationMode
     
     @State private var name: String = ""
@@ -24,16 +23,8 @@ struct AddPeriod: View {
                 .keyboardType(.numberPad)
             CustomButton(systemName: "plus", color: .white, foregroundColor: .gray, action: {
                 presentationMode.wrappedValue.dismiss()
-                
-                let newPeriod = Period(context: viewContext)
-                newPeriod.name = name
-                newPeriod.limit = Int32(limit) ?? 0
-                newPeriod.startDate = Date()
-                newPeriod.endDate =  Calendar.current.date(byAdding: .day,
-                                                       value: Int(numberOfDays) ?? 0,
-                                                       to: newPeriod.startDate!)!
-                
-                PersistenceController.shared.save()
+
+                StorageManager.shared.addPeriod(name: name, limit: limit, numberOfDays: numberOfDays)
             })
             .padding()
             Spacer()
@@ -41,12 +32,5 @@ struct AddPeriod: View {
         }
         .background(Color.gray)
         .ignoresSafeArea()
-    }
-}
-
-
-struct AddPeriod_Previews: PreviewProvider {
-    static var previews: some View {
-        AddPeriod()
     }
 }

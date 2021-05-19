@@ -22,7 +22,7 @@ struct PeriodCardView: View {
                         Image.init(systemName: "chevron.backward.circle")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 30, height: 30)
+                            .frame(width: 40, height: 30)
                             .padding()
                     }
                     Spacer()
@@ -35,7 +35,7 @@ struct PeriodCardView: View {
                         Text(viewModel.dayCount)
                             .font(.custom("Roboto-Light", size: 16))
                     }
-                    .frame(width: 30, height: 30)
+                    .frame(width: 40, height: 30)
                     .padding()
                 }
                 .frame(height: 60)

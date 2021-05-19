@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftUI
+import Combine
 
 protocol PeriodListViewModelProtocol {
     var periods: [Period] { get }
@@ -14,6 +14,18 @@ protocol PeriodListViewModelProtocol {
 
 class PeriodListViewModel: PeriodListViewModelProtocol, ObservableObject{
     
-    @Published var periods: [Period] = []
+    @Published var periods: [Period] = [] {
+        willSet {
+            
+        }
+    }
+    
+    private var cancellable: AnyCancellable?
+    
+    init(periodPublisher: AnyPublisher<[Period], Never> = StorageManager.shared.periods.eraseToAnyPublisher()) {
+        cancellable = periodPublisher.sink(receiveValue: { periods in
+            self.periods = periods
+        })
+    }
     
 }

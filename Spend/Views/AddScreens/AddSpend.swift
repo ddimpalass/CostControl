@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct AddSpend: View {
-    @Environment(\.managedObjectContext) var viewContext
     @Environment(\.presentationMode) private var presentationMode
 
     let period: Period
@@ -30,27 +29,24 @@ struct AddSpend: View {
             CustomTextField(text: $name, placeholder: "Название траты")
             CustomTextField(text: $cost, placeholder: "Сумма траты")
                 .keyboardType(.numberPad)
-            CustomButton(systemName: "plus", color: .white, foregroundColor: .gray, action: {
-                
-                if spend != nil {
-                    period.removeFromSpends(spend!)
-                    let newSpend = Spend(context: viewContext)
-                    newSpend.name = name
-                    newSpend.cost = Int32(cost) ?? 0
-                    newSpend.date = spend?.date
-                    period.addToSpends(newSpend)
-                } else {
-                    let newSpend = Spend(context: viewContext)
-                    newSpend.name = name
-                    newSpend.cost = Int32(cost) ?? 0
-                    newSpend.date = Date()
-                    
-                    period.addToSpends(newSpend)
-                }
-
-                PersistenceController.shared.save()
-            })
-            .padding()
+            
+            HStack {
+                CustomButton(systemName: "minus", color: .red, foregroundColor: .gray, action: {
+                    presentationMode.wrappedValue.dismiss()
+                    guard spend != nil else { return }
+                    StorageManager.shared.deleteSpend(spend: spend!)
+                })
+                .padding()
+                CustomButton(systemName: "plus", color: .white, foregroundColor: .gray, action: {
+                    presentationMode.wrappedValue.dismiss()
+                    if spend != nil {
+                        StorageManager.shared.updateSpend(spend: spend!, name: name, cost: cost)
+                    } else {
+                        StorageManager.shared.addSpend(period: period, name: name, cost: cost)
+                    }
+                })
+                .padding()
+            }
             Spacer()
         }
         .background(Color.gray)
