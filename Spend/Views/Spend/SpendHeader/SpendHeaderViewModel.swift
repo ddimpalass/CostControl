@@ -15,7 +15,7 @@ protocol SpendHeaderViewModelProtocol {
 }
 
 class SpendHeaderViewModel: SpendHeaderViewModelProtocol, ObservableObject {
-    var date: String
+    var date: String 
     
     var costSum: String {
         "\(spends.map({$0.cost}).reduce(0, +))"

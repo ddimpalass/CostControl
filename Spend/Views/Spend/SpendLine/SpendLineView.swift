@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct SpendLineView: View {
-    @Environment(\.managedObjectContext) var viewContext
-    @ObservedObject var viewModel: SpendLineViewModel
+    @StateObject var viewModel: SpendLineViewModel
     
     var body: some View {
         Button(action: viewModel.selectSpendButtonPressed, label: {
@@ -32,10 +31,23 @@ struct SpendLineView: View {
                     radius: 2,
                     x: 0,
                     y: 2)
-            .padding(.horizontal)
         })
+//        .contextMenu {
+//                Button {
+//                    
+//                } label: {
+//                    Label("Изменить", systemImage: "globe")
+//                }
+//
+//                Button {
+//                    viewModel.selectSpendButtonPressed()
+//                    StorageManager.shared.deleteSpend(spend: viewModel.selectedSpend!)
+//                } label: {
+//                    Label("Удалить", systemImage: "location.circle")
+//                }
+//            }
         .sheet(item: $viewModel.selectedSpend) { spend in
-            AddSpend(period: spend.period!, spend: spend).environment(\.managedObjectContext, viewContext)
+            AddSpend(period: nil, spend: spend)
         }
     }
 }

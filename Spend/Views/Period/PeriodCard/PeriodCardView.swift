@@ -43,8 +43,7 @@ struct PeriodCardView: View {
                 Text(viewModel.name)
                     .font(.custom("Roboto-Light", size: 32))
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
-                    // DayLimit!!
-                    Text(viewModel.periodLimit)
+                    Text(viewModel.dayLimit)
                         .font(.custom("DIN Condensed Bold", size: 64))
                         .padding(.top, 16)
                     Text(viewModel.periodLimit)

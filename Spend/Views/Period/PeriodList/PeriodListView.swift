@@ -12,26 +12,46 @@ struct PeriodListView: View {
     @StateObject private var viewModel = PeriodListViewModel()
     
     @State var showingAddPeriodScreen = false
-
+    @State var isEditing = false
+    
     var body: some View {
         ZStack {
-            ScrollView(.vertical, showsIndicators: false) {
-                Spacer(minLength: 50)
-                VStack(spacing: 16) {
+            VStack {
+                HStack(alignment: .firstTextBaseline) {
+                    Text("Периоды")
+                        .font(.custom("Roboto-Light", size: 32))
+                    Spacer()
+                    Button(action: { isEditing.toggle() }, label: {
+                        Text("Изменить")
+                            .font(.custom("Roboto-Light", size: 20))
+                            .foregroundColor(.black)
+                    })
+                }
+                .padding()
+                List {
                     ForEach(viewModel.periods, id: \.self) { period in
                         PeriodLineView(viewModel: PeriodLineViewModel(period: period))
                     }
+                    .onDelete(perform: { indexSet in
+                        indexSet.forEach { index in
+                            let period = viewModel.periods[index]
+                            StorageManager.shared.deletePeriod(period: period)
+                        }
+                    })
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .listRowInsets(EdgeInsets())
+                    .background(Color.white)
                 }
+                .environment(\.editMode, .constant(isEditing ? EditMode.active : EditMode.inactive)).animation(Animation.default)
             }
-            .background(Color.init(#colorLiteral(red: 0.9500349164, green: 0.9501938224, blue: 0.9500139356, alpha: 1)))
-            .ignoresSafeArea()
             VStack {
                 Spacer()
                 CustomButton(systemName: "plus", color: .gray, foregroundColor: .white) {
                     showingAddPeriodScreen.toggle()
                 }
                 .sheet(isPresented: $showingAddPeriodScreen) {
-                    AddPeriod()
+                    AddPeriod(period: nil)
                 }
             }
         }

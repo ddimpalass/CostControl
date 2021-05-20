@@ -16,6 +16,7 @@
 		189EA2562653927800F503DB /* PeriodLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA2552653927800F503DB /* PeriodLineViewModel.swift */; };
 		189EA25A2653930400F503DB /* PeriodCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA2592653930400F503DB /* PeriodCardViewModel.swift */; };
 		18CA573C2654FFFA00277F89 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA573B2654FFFA00277F89 /* StorageManager.swift */; };
+		18CA57422656A1A700277F89 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA57412656A1A700277F89 /* DateManager.swift */; };
 		2F3198AE26468C9F00836ECF /* SpendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198AD26468C9F00836ECF /* SpendApp.swift */; };
 		2F3198B226468CA000836ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198B126468CA000836ECF /* Assets.xcassets */; };
 		2F3198B526468CA000836ECF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198B426468CA000836ECF /* Preview Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		189EA2552653927800F503DB /* PeriodLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodLineViewModel.swift; sourceTree = "<group>"; };
 		189EA2592653930400F503DB /* PeriodCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodCardViewModel.swift; sourceTree = "<group>"; };
 		18CA573B2654FFFA00277F89 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
+		18CA57412656A1A700277F89 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		2F3198AA26468C9F00836ECF /* Spend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3198AD26468C9F00836ECF /* SpendApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendApp.swift; sourceTree = "<group>"; };
 		2F3198B126468CA000836ECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				18CA573B2654FFFA00277F89 /* StorageManager.swift */,
+				18CA57412656A1A700277F89 /* DateManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 				2F3198E12646B1A600836ECF /* PeriodListView.swift in Sources */,
 				189EA24526529C3500F503DB /* SpendHeaderView.swift in Sources */,
 				189EA25A2653930400F503DB /* PeriodCardViewModel.swift in Sources */,
+				18CA57422656A1A700277F89 /* DateManager.swift in Sources */,
 				189EA23A26501E1400F503DB /* PeriodListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

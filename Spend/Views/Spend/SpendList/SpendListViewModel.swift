@@ -8,14 +8,18 @@
 import Foundation
 
 protocol SpendListViewModelProtocol {
-    init(spendsDict: Array<(key: String, value: Array<Spend>)>)
+    init(period: Period)
 }
 
 class SpendListViewModel: SpendListViewModelProtocol, ObservableObject {
-    let spendsDict: Array<(key: String, value: Array<Spend>)>
+    var spendsDict: Array<(key: String, value: Array<Spend>)> {
+        DateManager.shared.gropedByDate(spends: period.spendsArray).sorted(by: {$0.key > $1.key})
+    }
     
-    required init(spendsDict: Array<(key: String, value: Array<Spend>)>) {
-        self.spendsDict = spendsDict
+    private let period: Period
+    
+    required init(period: Period) {
+        self.period = period
     }
 }
 

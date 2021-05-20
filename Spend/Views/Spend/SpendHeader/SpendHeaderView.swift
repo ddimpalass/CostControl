@@ -19,7 +19,6 @@ struct SpendHeaderView: View {
                 .font(.custom("Roboto-Light", size: 24))
         }
         .foregroundColor(Color.init(.darkGray))
-        .padding(.horizontal)
     }
 }
 

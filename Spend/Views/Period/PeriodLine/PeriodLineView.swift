@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PeriodLineView: View {
-    @Environment(\.managedObjectContext) var viewContext
     @ObservedObject var viewModel: PeriodLineViewModel
     
     var body: some View {
@@ -39,10 +38,9 @@ struct PeriodLineView: View {
                     radius: 2,
                     x: 0,
                     y: 2)
-            .padding(.horizontal)
         })
         .fullScreenCover(item: $viewModel.selectedPeriod) { period in
-            PeriodMainScreenView(viewModel: PeriodMainScreenViewModel(period: period)).environment(\.managedObjectContext, viewContext)
+            PeriodMainScreenView(viewModel: PeriodMainScreenViewModel(period: period))
         }
     }
 }

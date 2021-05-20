@@ -8,17 +8,27 @@
 import SwiftUI
 
 struct SpendListView: View {
-    @Environment(\.managedObjectContext) var viewContext
-    
     var viewModel: SpendListViewModel
-    
+
     var body: some View {
         VStack() {
-            ForEach(viewModel.spendsDict, id: \.key) { date, spends in
-                Section(header: SpendHeaderView(viewModel: SpendHeaderViewModel(date: date, spends: spends))){
-                    ForEach(spends, id: \.self) { spend in
-                        SpendLineView(viewModel: SpendLineViewModel(spend: spend))
+            List {
+                ForEach(viewModel.spendsDict, id: \.key) { date, spends in
+                    Section(header: SpendHeaderView(viewModel: SpendHeaderViewModel(date: date, spends: spends))){
+                        ForEach(spends, id: \.self) { spend in
+                            SpendLineView(viewModel: SpendLineViewModel(spend: spend))
+                        }
+                        .onDelete(perform: { indexSet in
+                            indexSet.forEach { index in
+                                let spend = spends[index]
+                                StorageManager.shared.deleteSpend(spend: spend)
+                            }
+                        })
                     }
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .background(Color.white)
+                    .listRowInsets(EdgeInsets())
                 }
             }
         }
