@@ -8,11 +8,11 @@
 import Combine
 import CoreData
 
-class StorageManager: NSObject, ObservableObject {
+class PeriodStorageManager: NSObject, ObservableObject {
     var periods = CurrentValueSubject<[Period], Never>([])
     private let periodFetchController: NSFetchedResultsController<Period>
     
-    static let shared: StorageManager = StorageManager()
+    static let shared: PeriodStorageManager = PeriodStorageManager()
 
     private override init() {
         
@@ -34,7 +34,7 @@ class StorageManager: NSObject, ObservableObject {
             try periodFetchController.performFetch()
             periods.value = periodFetchController.fetchedObjects ?? []
         } catch {
-            print("failed to fetch items!")
+            print("Failed to fetch periods!")
         }
     }
 
@@ -47,24 +47,6 @@ class StorageManager: NSObject, ObservableObject {
         newPeriod.endDate =  Calendar.current.date(byAdding: .day,
                                                    value: Int(numberOfDays) ?? 0,
                                                    to: newPeriod.startDate ?? Date())
-
-        if periodFetchController.managedObjectContext.hasChanges {
-            do {
-                try periodFetchController.managedObjectContext.save()
-            } catch  {
-                print("Error")
-            }
-        }
-    }
-    
-    func addSpend(period: Period, name: String, cost: String) {
-        
-        let newSpend = Spend(context: periodFetchController.managedObjectContext)
-        newSpend.name = name
-        newSpend.cost = Int32(cost) ?? 0
-        newSpend.date = Date()
-        period.addToSpends(newSpend)
-        
 
         if periodFetchController.managedObjectContext.hasChanges {
             do {
@@ -90,18 +72,6 @@ class StorageManager: NSObject, ObservableObject {
         }
     }
     
-    func updateSpend(spend: Spend, name: String, cost: String) {
-        spend.name = name
-        spend.cost = Int32(cost) ?? 0
-        
-        do {
-            try periodFetchController.managedObjectContext.save()
-        } catch  {
-            periodFetchController.managedObjectContext.rollback()
-            print("Error")
-        }
-    }
-    
     func deletePeriod(period: Period) {
         periodFetchController.managedObjectContext.delete(period)
         period.removeFromSpends(period.spends ?? NSSet())
@@ -113,20 +83,9 @@ class StorageManager: NSObject, ObservableObject {
             print("Error")
         }
     }
-
-    func deleteSpend(spend: Spend) {
-        periodFetchController.managedObjectContext.delete(spend)
-        
-        do {
-            try periodFetchController.managedObjectContext.save()
-        } catch  {
-            periodFetchController.managedObjectContext.rollback()
-            print("Error")
-        }
-    }
 }
 
-extension StorageManager: NSFetchedResultsControllerDelegate {
+extension PeriodStorageManager: NSFetchedResultsControllerDelegate {
     public func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         guard let periods = controller.fetchedObjects as? [Period] else { return }
         self.periods.value = periods

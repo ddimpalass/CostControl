@@ -1,5 +1,5 @@
 //
-//  AddPeriod.swift
+//  AddPeriodView.swift
 //  Spend
 //
 //  Created by Дмитрий on 08.05.2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddPeriod: View {
+struct AddPeriodView: View {
     @Environment(\.presentationMode) private var presentationMode
     
     @State private var name: String = ""
@@ -35,9 +35,9 @@ struct AddPeriod: View {
             CustomButton(systemName: "plus", color: .white, foregroundColor: .gray, action: {
                 presentationMode.wrappedValue.dismiss()
                 if period != nil {
-                    StorageManager.shared.updatePeriod(period: period!, name: name, limit: limit, numberOfDays: numberOfDays)
+                    PeriodStorageManager.shared.updatePeriod(period: period!, name: name, limit: limit, numberOfDays: numberOfDays)
                 } else {
-                    StorageManager.shared.addPeriod(name: name, limit: limit, numberOfDays: numberOfDays)
+                    PeriodStorageManager.shared.addPeriod(name: name, limit: limit, numberOfDays: numberOfDays)
                 }
             })
             .padding()

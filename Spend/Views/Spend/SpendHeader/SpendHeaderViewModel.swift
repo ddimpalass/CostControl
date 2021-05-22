@@ -21,7 +21,7 @@ class SpendHeaderViewModel: SpendHeaderViewModelProtocol, ObservableObject {
         "\(spends.map({$0.cost}).reduce(0, +))"
     }
     
-    private let spends: [Spend]
+    @Published var spends: [Spend]
     
     required init(date: String, spends: [Spend]) {
         self.date = date

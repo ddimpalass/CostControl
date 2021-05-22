@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PeriodLineView: View {
-    @ObservedObject var viewModel: PeriodLineViewModel
+    @StateObject var viewModel: PeriodLineViewModel
     
     var body: some View {
         Button(action: viewModel.selectPeriodButtonPressed , label: {

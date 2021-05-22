@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Combine
 
 protocol PeriodCardViewModelProtocol {
     var name: String { get }
@@ -19,29 +20,32 @@ protocol PeriodCardViewModelProtocol {
 
 class PeriodCardViewModel: PeriodCardViewModelProtocol, ObservableObject {
     
-    var name: String {
-        period.name ?? "Название"
+    @Published var name = ""
+    @Published var dayNow = ""
+    @Published var dayCount = ""
+    @Published var dayLimit = ""
+    @Published var periodLimit = ""
+    
+    var period: Period = Period() {
+        willSet {
+            name = newValue.name ?? "Название"
+            dayNow = "\(DateManager.shared.dayInPeriod(start: newValue.startDate ?? Date(), end: Date()) + 1)"
+            dayCount = "/\(DateManager.shared.dayInPeriod(start: newValue.startDate!, end: newValue.endDate!))"
+            dayLimit = "\(newValue.limit/(DateManager.shared.dayInPeriod(start: newValue.startDate!, end: newValue.endDate!)) - DateManager.shared.costByDate(spendDict: DateManager.shared.gropedByDate(spends: newValue.spendsArray)))"
+            periodLimit = "/\(newValue.limit/(DateManager.shared.dayInPeriod(start: newValue.startDate!, end: newValue.endDate!)))"
+        }
     }
     
-    var dayNow: String {
-        "\(DateManager.shared.dayInPeriod(start: period.startDate ?? Date(), end: Date()) + 1)"
-    }
     
-    var dayCount: String {
-        "/\(DateManager.shared.dayInPeriod(start: period.startDate!, end: period.endDate!))"
-    }
-    
-    var dayLimit: String {
-        "\(period.limit/(DateManager.shared.dayInPeriod(start: period.startDate!, end: period.endDate!)) - DateManager.shared.costByDate(spendDict: DateManager.shared.gropedByDate(spends: period.spendsArray)))"
-    }
-    
-    var periodLimit: String {
-        "/\(period.limit/(DateManager.shared.dayInPeriod(start: period.startDate!, end: period.endDate!)))"
-    }
-    
-    private let period: Period
+    private var cancellable = Set<AnyCancellable>()
     
     required init(period: Period) {
-        self.period = period
+        let periodPublisher: AnyPublisher<[Period], Never> = PeriodStorageManager.shared.periods.eraseToAnyPublisher()
+        periodPublisher
+            .sink{ [unowned self] periods in
+                self.period = periods.first{ $0 == period } ?? period
+            }
+            .store(in: &self.cancellable)
     }
 }
+

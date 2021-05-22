@@ -1,5 +1,5 @@
 //
-//  AddSpend.swift
+//  AddSpendView.swift
 //  Spend
 //
 //  Created by Дмитрий on 08.05.2021.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AddSpend: View {
+struct AddSpendView: View {
     @Environment(\.presentationMode) private var presentationMode
 
     let period: Period?
@@ -32,9 +32,9 @@ struct AddSpend: View {
             CustomButton(systemName: "plus", color: .white, foregroundColor: .gray, action: {
                 presentationMode.wrappedValue.dismiss()
                 if spend != nil {
-                    StorageManager.shared.updateSpend(spend: spend!, name: name, cost: cost)
+                    SpendStorageManager.shared.updateSpend(spend: spend!, name: name, cost: cost)
                 } else if period != nil{
-                    StorageManager.shared.addSpend(period: period!, name: name, cost: cost)
+                    SpendStorageManager.shared.addSpend(period: period!, name: name, cost: cost)
                 }
             })
             .padding()

@@ -24,7 +24,7 @@ class SpendLineViewModel: SpendLineViewModelProtocol, ObservableObject {
     }
     
     var time: String {
-        dateFormatterForTime.string(from: spend.date ?? Date())
+        DateManager.shared.dateFormatterForTime.string(from: spend.date ?? Date())
     }
     
     var cost: String {
@@ -33,14 +33,7 @@ class SpendLineViewModel: SpendLineViewModelProtocol, ObservableObject {
     
     @Published var selectedSpend: Spend? = nil
 
-    private let spend: Spend
-    
-    private let dateFormatterForTime: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .none
-        formatter.timeStyle = .short
-        return formatter
-    }()
+    @Published var spend: Spend
     
     required init(spend: Spend) {
         self.spend = spend

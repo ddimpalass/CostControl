@@ -10,7 +10,7 @@ import SwiftUI
 struct PeriodCardView: View {
     @Environment(\.presentationMode) private var presentationMode
     
-    var viewModel: PeriodCardViewModel
+    @StateObject var viewModel: PeriodCardViewModel
     
     var body: some View {
         HStack {

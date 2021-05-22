@@ -8,13 +8,12 @@
 import Foundation
 
 protocol PeriodMainScreenViewModelProtocol {
-
     init(period: Period)
 }
 
-class PeriodMainScreenViewModel: PeriodMainScreenViewModelProtocol {
+class PeriodMainScreenViewModel: PeriodMainScreenViewModelProtocol, ObservableObject {
 
-    let period: Period
+    @Published var period: Period
     
     required init(period: Period) {
         self.period = period

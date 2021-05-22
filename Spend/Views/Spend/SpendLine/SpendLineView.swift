@@ -47,7 +47,7 @@ struct SpendLineView: View {
 //                }
 //            }
         .sheet(item: $viewModel.selectedSpend) { spend in
-            AddSpend(period: nil, spend: spend)
+            AddSpendView(period: nil, spend: spend)
         }
     }
 }

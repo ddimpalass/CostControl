@@ -14,18 +14,16 @@ protocol PeriodListViewModelProtocol {
 
 class PeriodListViewModel: PeriodListViewModelProtocol, ObservableObject{
     
-    @Published var periods: [Period] = [] {
-        willSet {
-            
-        }
-    }
+    @Published var periods: [Period] = []
     
-    private var cancellable: AnyCancellable?
+    private var cancellable = Set<AnyCancellable>()
     
-    init(periodPublisher: AnyPublisher<[Period], Never> = StorageManager.shared.periods.eraseToAnyPublisher()) {
-        cancellable = periodPublisher.sink(receiveValue: { periods in
-            self.periods = periods
-        })
+    init(periodPublisher: AnyPublisher<[Period], Never> = PeriodStorageManager.shared.periods.eraseToAnyPublisher()) {
+        periodPublisher
+            .sink{ periods in
+                self.periods = periods
+            }
+            .store(in: &cancellable)
     }
     
 }

@@ -35,7 +35,7 @@ struct PeriodListView: View {
                     .onDelete(perform: { indexSet in
                         indexSet.forEach { index in
                             let period = viewModel.periods[index]
-                            StorageManager.shared.deletePeriod(period: period)
+                            PeriodStorageManager.shared.deletePeriod(period: period)
                         }
                     })
                     .padding(.horizontal)
@@ -51,7 +51,7 @@ struct PeriodListView: View {
                     showingAddPeriodScreen.toggle()
                 }
                 .sheet(isPresented: $showingAddPeriodScreen) {
-                    AddPeriod(period: nil)
+                    AddPeriodView(period: nil)
                 }
             }
         }

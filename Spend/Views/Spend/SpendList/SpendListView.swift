@@ -8,12 +8,12 @@
 import SwiftUI
 
 struct SpendListView: View {
-    var viewModel: SpendListViewModel
+    @StateObject var viewModel: SpendListViewModel
 
     var body: some View {
         VStack() {
             List {
-                ForEach(viewModel.spendsDict, id: \.key) { date, spends in
+                ForEach(viewModel.spendsGroupByDate, id: \.key) { date, spends in
                     Section(header: SpendHeaderView(viewModel: SpendHeaderViewModel(date: date, spends: spends))){
                         ForEach(spends, id: \.self) { spend in
                             SpendLineView(viewModel: SpendLineViewModel(spend: spend))
@@ -21,7 +21,7 @@ struct SpendListView: View {
                         .onDelete(perform: { indexSet in
                             indexSet.forEach { index in
                                 let spend = spends[index]
-                                StorageManager.shared.deleteSpend(spend: spend)
+                                SpendStorageManager.shared.deleteSpend(spend: spend)
                             }
                         })
                     }
