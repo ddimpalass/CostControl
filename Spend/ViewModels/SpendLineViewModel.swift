@@ -33,7 +33,7 @@ class SpendLineViewModel: SpendLineViewModelProtocol, ObservableObject {
     
     @Published var selectedSpend: Spend? = nil
 
-    @Published var spend: Spend
+    var spend: Spend
     
     required init(spend: Spend) {
         self.spend = spend

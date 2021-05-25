@@ -9,9 +9,10 @@ import SwiftUI
 
 struct SpendLineView: View {
     @StateObject var viewModel: SpendLineViewModel
+    @State var showSheet = false
     
     var body: some View {
-        Button(action: viewModel.selectSpendButtonPressed, label: {
+        Button(action: {}, label: {
             HStack {
                 VStack(alignment: .leading) {
                     Text(viewModel.name)
@@ -32,22 +33,16 @@ struct SpendLineView: View {
                     x: 0,
                     y: 2)
         })
-//        .contextMenu {
-//                Button {
-//                    
-//                } label: {
-//                    Label("Изменить", systemImage: "globe")
-//                }
-//
-//                Button {
-//                    viewModel.selectSpendButtonPressed()
-//                    StorageManager.shared.deleteSpend(spend: viewModel.selectedSpend!)
-//                } label: {
-//                    Label("Удалить", systemImage: "location.circle")
-//                }
-//            }
-        .sheet(item: $viewModel.selectedSpend) { spend in
-            AddSpendView(period: nil, spend: spend)
+        .contextMenu {
+                Button {
+                    viewModel.selectSpendButtonPressed()
+                    showSheet.toggle()
+                } label: {
+                    Label("Изменить", systemImage: "globe")
+                }
+            }
+        .sheet(isPresented: $showSheet) {
+            AddSpendView(period: nil, spend: viewModel.selectedSpend)
         }
     }
 }

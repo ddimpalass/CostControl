@@ -26,7 +26,9 @@ struct AddPeriodView: View {
     }
 
     var body: some View {
-        VStack(spacing: -16) {
+        VStack() {
+            Color.gray
+                .frame(height: 40)
             CustomTextField(text: $name, placeholder: "Название периода")
             CustomTextField(text: $limit, placeholder: "Лимит периода")
                 .keyboardType(.numberPad)
@@ -40,10 +42,9 @@ struct AddPeriodView: View {
                     PeriodStorageManager.shared.addPeriod(name: name, limit: limit, numberOfDays: numberOfDays)
                 }
             })
-            .padding()
             Spacer()
-
         }
+        .padding()
         .background(Color.gray)
         .ignoresSafeArea()
     }

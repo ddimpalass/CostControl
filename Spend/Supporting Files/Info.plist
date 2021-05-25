@@ -24,7 +24,6 @@
 	<array>
 		<string>Roboto-Light.ttf</string>
 		<string>DIN Condensed Bold.ttf</string>
-		<string>PoiretOne-Regular.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

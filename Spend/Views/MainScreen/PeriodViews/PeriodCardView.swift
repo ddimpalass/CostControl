@@ -22,7 +22,7 @@ struct PeriodCardView: View {
                         Image.init(systemName: "chevron.backward.circle")
                             .resizable()
                             .scaledToFit()
-                            .frame(width: 40, height: 30)
+                            .frame(height: 30)
                             .padding()
                     }
                     Spacer()
@@ -35,7 +35,7 @@ struct PeriodCardView: View {
                         Text(viewModel.dayCount)
                             .font(.custom("Roboto-Light", size: 16))
                     }
-                    .frame(width: 40, height: 30)
+                    .frame(height: 30)
                     .padding()
                 }
                 .frame(height: 60)
@@ -46,7 +46,7 @@ struct PeriodCardView: View {
                     Text(viewModel.dayLimit)
                         .font(.custom("DIN Condensed Bold", size: 64))
                         .padding(.top, 16)
-                    Text(viewModel.periodLimit)
+                    Text("/" + viewModel.periodLimit)
                         .font(.custom("Roboto-Light", size: 24))
                 }
             }
@@ -55,7 +55,25 @@ struct PeriodCardView: View {
         .foregroundColor(.white)
         .padding(.vertical, 20)
         .background(Color.gray)
-        .cornerRadius(39)
+        .cornerRadius(39, corners: .bottomLeft)
+        .cornerRadius(39, corners: .bottomRight)
+    }
+}
+
+extension View {
+    func cornerRadius(_ radius: CGFloat, corners: UIRectCorner) -> some View {
+        clipShape( RoundedCorner(radius: radius, corners: corners) )
+    }
+}
+
+struct RoundedCorner: Shape {
+
+    var radius: CGFloat = .infinity
+    var corners: UIRectCorner = .allCorners
+
+    func path(in rect: CGRect) -> Path {
+        let path = UIBezierPath(roundedRect: rect, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        return Path(path.cgPath)
     }
 }
 

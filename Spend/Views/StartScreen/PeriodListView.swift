@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct PeriodListView: View {
-    
     @StateObject private var viewModel = PeriodListViewModel()
     
     @State var showingAddPeriodScreen = false
@@ -22,26 +21,43 @@ struct PeriodListView: View {
                         .font(.custom("Roboto-Light", size: 32))
                     Spacer()
                     Button(action: { isEditing.toggle() }, label: {
-                        Text("Изменить")
+                        Text(isEditing ? "Готово" : "Изменить")
                             .font(.custom("Roboto-Light", size: 20))
                             .foregroundColor(.black)
                     })
                 }
                 .padding()
                 List {
-                    ForEach(viewModel.periods, id: \.self) { period in
-                        PeriodLineView(viewModel: PeriodLineViewModel(period: period))
-                    }
-                    .onDelete(perform: { indexSet in
-                        indexSet.forEach { index in
-                            let period = viewModel.periods[index]
-                            PeriodStorageManager.shared.deletePeriod(period: period)
+                    Section(header: PeriodHeaderView(viewModel: PeriodHeaderViewModel(there: .active))){
+                        ForEach(viewModel.activePeriods, id: \.self) { period in
+                            PeriodLineView(viewModel: PeriodLineViewModel(period: period))
                         }
-                    })
+                        .onDelete(perform: { indexSet in
+                            indexSet.forEach { index in
+                                let period = viewModel.activePeriods[index]
+                                PeriodStorageManager.shared.deletePeriod(period: period)
+                            }
+                        })
+                    }
                     .padding(.horizontal)
                     .padding(.vertical, 8)
-                    .listRowInsets(EdgeInsets())
                     .background(Color.white)
+                    .listRowInsets(EdgeInsets())
+                    Section(header: PeriodHeaderView(viewModel: PeriodHeaderViewModel(there: .completed))){
+                        ForEach(viewModel.completedPeriods, id: \.self) { period in
+                            PeriodLineView(viewModel: PeriodLineViewModel(period: period))
+                        }
+                        .onDelete(perform: { indexSet in
+                            indexSet.forEach { index in
+                                let period = viewModel.completedPeriods[index]
+                                PeriodStorageManager.shared.deletePeriod(period: period)
+                            }
+                        })
+                    }
+                    .padding(.horizontal)
+                    .padding(.vertical, 8)
+                    .background(Color.white)
+                    .listRowInsets(EdgeInsets())
                 }
                 .environment(\.editMode, .constant(isEditing ? EditMode.active : EditMode.inactive)).animation(Animation.default)
             }

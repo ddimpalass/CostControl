@@ -25,7 +25,7 @@ struct AddSpendView: View {
     }
     
     var body: some View {
-        VStack(spacing: -16) {
+        VStack() {
             CustomTextField(text: $name, placeholder: "Название траты")
             CustomTextField(text: $cost, placeholder: "Сумма траты")
                 .keyboardType(.numberPad)
@@ -37,9 +37,9 @@ struct AddSpendView: View {
                     SpendStorageManager.shared.addSpend(period: period!, name: name, cost: cost)
                 }
             })
-            .padding()
             Spacer()
         }
+        .padding()
         .background(Color.gray)
         .ignoresSafeArea()
     }

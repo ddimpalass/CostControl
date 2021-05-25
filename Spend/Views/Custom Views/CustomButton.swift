@@ -29,7 +29,7 @@ struct CustomButton: View {
                     .foregroundColor(foregroundColor)
             }
             .frame(width: 100, height: 100)
-            
+            .padding()
         })
     }
 }

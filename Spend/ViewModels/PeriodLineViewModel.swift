@@ -12,9 +12,18 @@ protocol PeriodLineViewModelProtocol {
     var balance: String { get }
     var limit: String { get }
     var selectedPeriod: Period? { get }
+    var showSheet: Bool { get }
+    var activeSheet: ActiveSheet? { get }
     func selectPeriodButtonPressed()
     
     init (period: Period)
+}
+
+enum ActiveSheet {
+    case open, update
+    var id: Int {
+        hashValue
+    }
 }
 
 class PeriodLineViewModel: PeriodLineViewModelProtocol, ObservableObject {
@@ -32,6 +41,10 @@ class PeriodLineViewModel: PeriodLineViewModelProtocol, ObservableObject {
     }
     
     @Published var selectedPeriod: Period? = nil
+    
+    @Published var showSheet: Bool = false
+    
+    @Published var activeSheet: ActiveSheet? = .open
 
     private var period: Period
     
@@ -41,6 +54,7 @@ class PeriodLineViewModel: PeriodLineViewModelProtocol, ObservableObject {
     
     func selectPeriodButtonPressed() {
         selectedPeriod = period
+        showSheet.toggle()
     }
     
 }

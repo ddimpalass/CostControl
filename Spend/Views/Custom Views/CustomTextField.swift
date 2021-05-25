@@ -22,7 +22,6 @@ struct CustomTextField: View {
                     radius: 2,
                     x: 0,
                     y: 2)
-            .padding()
     }
 }
 

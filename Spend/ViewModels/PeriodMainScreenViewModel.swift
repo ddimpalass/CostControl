@@ -13,7 +13,7 @@ protocol PeriodMainScreenViewModelProtocol {
 
 class PeriodMainScreenViewModel: PeriodMainScreenViewModelProtocol, ObservableObject {
 
-    @Published var period: Period
+    var period: Period
     
     required init(period: Period) {
         self.period = period

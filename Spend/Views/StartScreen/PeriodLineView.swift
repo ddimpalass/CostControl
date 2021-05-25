@@ -11,7 +11,10 @@ struct PeriodLineView: View {
     @StateObject var viewModel: PeriodLineViewModel
     
     var body: some View {
-        Button(action: viewModel.selectPeriodButtonPressed , label: {
+        Button(action: {
+            viewModel.activeSheet = .open
+            viewModel.selectPeriodButtonPressed()
+        }){
             HStack {
                 VStack(alignment: .leading){
                     Text(viewModel.name)
@@ -38,9 +41,22 @@ struct PeriodLineView: View {
                     radius: 2,
                     x: 0,
                     y: 2)
-        })
-        .fullScreenCover(item: $viewModel.selectedPeriod) { period in
-            PeriodMainScreenView(viewModel: PeriodMainScreenViewModel(period: period))
+        }
+        .contextMenu {
+            Button {
+                viewModel.activeSheet = .update
+                viewModel.selectPeriodButtonPressed()
+            } label: {
+                Label("Изменить", systemImage: "globe")
+            }
+        }
+        .fullScreenCover(isPresented: $viewModel.showSheet) {
+            if viewModel.activeSheet == .open {
+                PeriodMainScreenView(viewModel: PeriodMainScreenViewModel(period: viewModel.selectedPeriod!))
+            } else {
+                AddPeriodView(period: viewModel.selectedPeriod)
+            }
+            
         }
     }
 }

@@ -43,7 +43,7 @@ class PeriodStorageManager: NSObject, ObservableObject {
         let newPeriod = Period(context: periodFetchController.managedObjectContext)
         newPeriod.name = name
         newPeriod.limit = Int32(limit) ?? 0
-        newPeriod.startDate = Date()
+        newPeriod.startDate = Calendar.current.startOfDay(for: Date())
         newPeriod.endDate =  Calendar.current.date(byAdding: .day,
                                                    value: Int(numberOfDays) ?? 0,
                                                    to: newPeriod.startDate ?? Date())

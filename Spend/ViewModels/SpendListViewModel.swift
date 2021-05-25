@@ -15,17 +15,6 @@ protocol SpendListViewModelProtocol {
 class SpendListViewModel: SpendListViewModelProtocol, ObservableObject {
     @Published var spendsGroupByDate: Array<(key: String, value: Array<Spend>)> = []
     
-    
-//    var dateArray: [String] {
-//        DateManager.shared.groupByDate(spends: period.spendsArray)
-//    }
-    
-//    var period: Period = Period()
-//    
-//    required init(period: Period) {
-//        self.period = period
-//    }
-    
     @Published var spends: [Spend] = [] {
         willSet {
             spendsGroupByDate = DateManager.shared.gropedByDate(spends: newValue).sorted(by: {$0.key > $1.key})

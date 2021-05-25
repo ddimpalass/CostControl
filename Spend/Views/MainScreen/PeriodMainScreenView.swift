@@ -10,7 +10,7 @@ import SwiftUI
 struct PeriodMainScreenView: View {
     @State var showingAddSpendScreen = false
     
-    @ObservedObject var viewModel: PeriodMainScreenViewModel
+    var viewModel: PeriodMainScreenViewModel
     
     var body: some View {
         ZStack {
