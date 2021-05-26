@@ -12,13 +12,13 @@ struct SpendHeaderView: View {
 
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
-            Text(viewModel.date)
+            Text(viewModel.dateString)
                 .font(.custom("Roboto-Light", size: 20))
             Spacer()
             Text(viewModel.costSum)
                 .font(.custom("Roboto-Light", size: 24))
         }
-        .foregroundColor(Color.init(.darkGray))
+        .foregroundColor(Color("DarkTextColor"))
         .padding(.horizontal)
     }
 }

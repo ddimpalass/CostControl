@@ -6,25 +6,39 @@
 //
 
 import Foundation
+import Combine
 
 protocol SpendHeaderViewModelProtocol {
-    var date: String { get }
+    var dateString: String { get }
     var costSum: String { get }
     
-    init(date: String, spends: [Spend])
+    init(date: Date, spendsByDate: [Spend])
 }
 
 class SpendHeaderViewModel: SpendHeaderViewModelProtocol, ObservableObject {
-    var date: String 
+    @Published var costSum: String = ""
     
-    var costSum: String {
-        "\(spends.map({$0.cost}).reduce(0, +))"
+    var spends: [Spend] = [] {
+        willSet {
+            costSum = "\(DateManager.shared.costByDate(spends: newValue, date: date))"
+        }
     }
     
-    @Published var spends: [Spend]
+    var dateString: String {
+        DateManager.shared.dateFormatterForDate.string(from: date)
+    }
     
-    required init(date: String, spends: [Spend]) {
+    var date: Date
+    
+    private var cancellable = Set<AnyCancellable>()
+    
+    required init(date: Date, spendsByDate: [Spend]) {
         self.date = date
-        self.spends = spends
+        let spendPublisher: AnyPublisher<[Spend], Never> = SpendStorageManager.shared.spends.eraseToAnyPublisher()
+        spendPublisher
+            .sink{ [unowned self] spends in
+                self.spends = spends.filter{ $0.period == spendsByDate.first?.period }
+            }
+            .store(in: &self.cancellable)
     }
 }

@@ -22,8 +22,10 @@
 		18CA57582658325E00277F89 /* AddSpendViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA57572658325E00277F89 /* AddSpendViewModel.swift */; };
 		18CA5763265BF27C00277F89 /* PeriodHeaderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA5762265BF27C00277F89 /* PeriodHeaderViewModel.swift */; };
 		18CA5766265BF28700277F89 /* PeriodHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA5765265BF28700277F89 /* PeriodHeaderView.swift */; };
+		18CA577B265D2BD200277F89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18CA577A265D2BD200277F89 /* Assets.xcassets */; };
+		18CA5783265E29D200277F89 /* LinearGradient + MainColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA5782265E29D200277F89 /* LinearGradient + MainColor.swift */; };
 		2F3198AE26468C9F00836ECF /* SpendApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198AD26468C9F00836ECF /* SpendApp.swift */; };
-		2F3198B226468CA000836ECF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198B126468CA000836ECF /* Assets.xcassets */; };
+		2F3198B226468CA000836ECF /* AssetsColor.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198B126468CA000836ECF /* AssetsColor.xcassets */; };
 		2F3198B526468CA000836ECF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2F3198B426468CA000836ECF /* Preview Assets.xcassets */; };
 		2F3198B726468CA000836ECF /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198B626468CA000836ECF /* PersistenceController.swift */; };
 		2F3198BA26468CA000836ECF /* Spend.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2F3198B826468CA000836ECF /* Spend.xcdatamodeld */; };
@@ -61,9 +63,11 @@
 		18CA57572658325E00277F89 /* AddSpendViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSpendViewModel.swift; sourceTree = "<group>"; };
 		18CA5762265BF27C00277F89 /* PeriodHeaderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodHeaderViewModel.swift; sourceTree = "<group>"; };
 		18CA5765265BF28700277F89 /* PeriodHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodHeaderView.swift; sourceTree = "<group>"; };
+		18CA577A265D2BD200277F89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		18CA5782265E29D200277F89 /* LinearGradient + MainColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LinearGradient + MainColor.swift"; sourceTree = "<group>"; };
 		2F3198AA26468C9F00836ECF /* Spend.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spend.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F3198AD26468C9F00836ECF /* SpendApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendApp.swift; sourceTree = "<group>"; };
-		2F3198B126468CA000836ECF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2F3198B126468CA000836ECF /* AssetsColor.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AssetsColor.xcassets; sourceTree = "<group>"; };
 		2F3198B426468CA000836ECF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2F3198B626468CA000836ECF /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		2F3198B926468CA000836ECF /* Spend.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Spend.xcdatamodel; sourceTree = "<group>"; };
@@ -142,6 +146,14 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		18CA5781265E29BB00277F89 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				18CA5782265E29D200277F89 /* LinearGradient + MainColor.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		2F3198A126468C9F00836ECF = {
 			isa = PBXGroup;
 			children = (
@@ -165,6 +177,7 @@
 				2F3198C426468D2000836ECF /* Model */,
 				2F3198C326468D0B00836ECF /* Views */,
 				18CA576A265D1D2500277F89 /* ViewModels */,
+				18CA5781265E29BB00277F89 /* Extentions */,
 				2F3198C226468CE600836ECF /* Resourses */,
 				2F3198C126468CCF00836ECF /* Supporting Files */,
 				2F3198B326468CA000836ECF /* Preview Content */,
@@ -191,7 +204,8 @@
 		2F3198C226468CE600836ECF /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
-				2F3198B126468CA000836ECF /* Assets.xcassets */,
+				2F3198B126468CA000836ECF /* AssetsColor.xcassets */,
+				18CA577A265D2BD200277F89 /* Assets.xcassets */,
 				2F3198C5264693B300836ECF /* Fonts */,
 			);
 			path = Resourses;
@@ -328,8 +342,9 @@
 			files = (
 				2F3198CB264693CF00836ECF /* DIN Condensed Bold.ttf in Resources */,
 				2F3198B526468CA000836ECF /* Preview Assets.xcassets in Resources */,
-				2F3198B226468CA000836ECF /* Assets.xcassets in Resources */,
+				2F3198B226468CA000836ECF /* AssetsColor.xcassets in Resources */,
 				2F3198CA264693CF00836ECF /* Roboto-Light.ttf in Resources */,
+				18CA577B265D2BD200277F89 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -371,6 +386,7 @@
 				18CA57422656A1A700277F89 /* DateManager.swift in Sources */,
 				18CA574D2657EB5A00277F89 /* SpendStorageManager.swift in Sources */,
 				189EA23A26501E1400F503DB /* PeriodListViewModel.swift in Sources */,
+				18CA5783265E29D200277F89 /* LinearGradient + MainColor.swift in Sources */,
 				18CA57552658324300277F89 /* AddPeriodViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

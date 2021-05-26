@@ -14,9 +14,9 @@ struct SpendListView: View {
         VStack() {
             List {
                 ForEach(viewModel.spendsGroupByDate, id: \.key) { date, spends in
-                    Section(header: SpendHeaderView(viewModel: SpendHeaderViewModel(date: date, spends: spends))){
+                    Section(header: SpendHeaderView(viewModel: SpendHeaderViewModel(date: date, spendsByDate: spends))){
                         ForEach(spends, id: \.self) { spend in
-                            SpendLineView(viewModel: SpendLineViewModel(spend: spend))
+                            SpendLineView(viewModel: SpendLineViewModel(for: spend))
                         }
                         .onDelete(perform: { indexSet in
                             indexSet.forEach { index in
@@ -27,7 +27,7 @@ struct SpendListView: View {
                     }
                     .padding(.horizontal)
                     .padding(.vertical, 8)
-                    .background(Color.white)
+                    .background(Color("BackgroundColor"))
                     .listRowInsets(EdgeInsets())
                 }
             }

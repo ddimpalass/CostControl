@@ -18,10 +18,6 @@ struct CustomButton: View {
             ZStack {
                 Circle()
                     .foregroundColor(color)
-                    .shadow(color: Color.init(.black),
-                            radius: 2,
-                            x: 0,
-                            y: 2)
                 Image(systemName: systemName)
                     .resizable()
                     .scaledToFit()

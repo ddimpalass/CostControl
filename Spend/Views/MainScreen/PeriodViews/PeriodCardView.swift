@@ -12,6 +12,8 @@ struct PeriodCardView: View {
     
     @StateObject var viewModel: PeriodCardViewModel
     
+    let gradient = Gradient(colors: [Color("MainColor"), Color("MainColorHelper")])
+    
     var body: some View {
         HStack {
             Spacer()
@@ -52,9 +54,12 @@ struct PeriodCardView: View {
             }
             Spacer()
         }
-        .foregroundColor(.white)
+        .foregroundColor(Color("DarkTextColor"))
         .padding(.vertical, 20)
-        .background(Color.gray)
+        .background(LinearGradient(gradient: gradient,
+                                   startPoint: .top,
+                                   endPoint: .bottom)
+        )
         .cornerRadius(39, corners: .bottomLeft)
         .cornerRadius(39, corners: .bottomRight)
     }

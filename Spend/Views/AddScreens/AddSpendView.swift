@@ -29,7 +29,10 @@ struct AddSpendView: View {
             CustomTextField(text: $name, placeholder: "Название траты")
             CustomTextField(text: $cost, placeholder: "Сумма траты")
                 .keyboardType(.numberPad)
-            CustomButton(systemName: "plus", color: .white, foregroundColor: .gray, action: {
+            CustomButton(systemName: "plus",
+                         color: Color("LightTextColor"),
+                         foregroundColor: Color("MainColor"),
+                         action: {
                 presentationMode.wrappedValue.dismiss()
                 if spend != nil {
                     SpendStorageManager.shared.updateSpend(spend: spend!, name: name, cost: cost)
@@ -40,7 +43,7 @@ struct AddSpendView: View {
             Spacer()
         }
         .padding()
-        .background(Color.gray)
+        .background(LinearGradient.gradientWithMainColor)
         .ignoresSafeArea()
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct SpendLineView: View {
     @StateObject var viewModel: SpendLineViewModel
     @State var showSheet = false
-    
+
     var body: some View {
         Button(action: {}, label: {
             HStack {
@@ -25,20 +25,16 @@ struct SpendLineView: View {
                     .font(.custom("DIN Condensed Bold", size: 36))
             }
             .padding()
-            .foregroundColor(Color.init(.darkGray))
-            .background(Color.white)
+            .foregroundColor(Color("DarkTextColor"))
+            .background(LinearGradient.gradientWithMainColor)
             .cornerRadius(8)
-            .shadow(color: Color.init(.lightGray),
-                    radius: 2,
-                    x: 0,
-                    y: 2)
         })
         .contextMenu {
                 Button {
                     viewModel.selectSpendButtonPressed()
                     showSheet.toggle()
                 } label: {
-                    Label("Изменить", systemImage: "globe")
+                    Label("Изменить", systemImage: "ellipsis.circle")
                 }
             }
         .sheet(isPresented: $showSheet) {

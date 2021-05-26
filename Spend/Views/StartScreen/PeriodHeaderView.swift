@@ -18,7 +18,7 @@ struct PeriodHeaderView: View {
             Text(viewModel.count)
                 .font(.custom("Roboto-Light", size: 24))
         }
-        .foregroundColor(Color.init(.darkGray))
+        .foregroundColor(Color("DarkTextColor"))
         .padding(.horizontal)
     }
 }

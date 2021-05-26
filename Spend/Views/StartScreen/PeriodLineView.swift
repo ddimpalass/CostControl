@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PeriodLineView: View {
     @StateObject var viewModel: PeriodLineViewModel
-    
+
     var body: some View {
         Button(action: {
             viewModel.activeSheet = .open
@@ -34,20 +34,16 @@ struct PeriodLineView: View {
                     .frame(width: 30, height: 30)
             }
             .padding()
-            .foregroundColor(Color.init(.darkGray))
-            .background(Color.white)
+            .foregroundColor(Color("DarkTextColor"))
+            .background(LinearGradient.gradientWithMainColor)
             .cornerRadius(8)
-            .shadow(color: Color.init(.lightGray),
-                    radius: 2,
-                    x: 0,
-                    y: 2)
         }
         .contextMenu {
             Button {
                 viewModel.activeSheet = .update
                 viewModel.selectPeriodButtonPressed()
             } label: {
-                Label("Изменить", systemImage: "globe")
+                Label("Изменить", systemImage: "ellipsis.circle")
             }
         }
         .fullScreenCover(isPresented: $viewModel.showSheet) {
@@ -56,7 +52,7 @@ struct PeriodLineView: View {
             } else {
                 AddPeriodView(period: viewModel.selectedPeriod)
             }
-            
+
         }
     }
 }

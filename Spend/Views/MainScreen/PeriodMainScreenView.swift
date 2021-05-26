@@ -14,6 +14,8 @@ struct PeriodMainScreenView: View {
     
     var body: some View {
         ZStack {
+            Color("BackgroundColor")
+                .ignoresSafeArea()
             VStack(spacing: 0) {
                 PeriodCardView(viewModel: PeriodCardViewModel(period: viewModel.period))
                     .frame(height: 270)
@@ -22,7 +24,9 @@ struct PeriodMainScreenView: View {
             .ignoresSafeArea()
             VStack {
                 Spacer()
-                CustomButton(systemName: "cart.badge.plus", color: .gray, foregroundColor: .white) {
+                CustomButton(systemName: "plus",
+                             color: Color("DarkTextColor"),
+                             foregroundColor: Color("BackgroundColor")) {
                     showingAddSpendScreen.toggle()
                 }
                 .sheet(isPresented: $showingAddSpendScreen) {

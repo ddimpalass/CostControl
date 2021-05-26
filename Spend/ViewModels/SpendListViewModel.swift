@@ -13,11 +13,11 @@ protocol SpendListViewModelProtocol {
 }
 
 class SpendListViewModel: SpendListViewModelProtocol, ObservableObject {
-    @Published var spendsGroupByDate: Array<(key: String, value: Array<Spend>)> = []
+    @Published var spendsGroupByDate: Array<(key: Date, value: Array<Spend>)> = []
     
     @Published var spends: [Spend] = [] {
         willSet {
-            spendsGroupByDate = DateManager.shared.gropedByDate(spends: newValue).sorted(by: {$0.key > $1.key})
+            spendsGroupByDate = DateManager.shared.gropedByDate(spends: newValue)
         }
     }
     

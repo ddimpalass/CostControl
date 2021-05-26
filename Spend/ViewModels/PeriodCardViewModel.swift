@@ -37,7 +37,7 @@ class PeriodCardViewModel: PeriodCardViewModelProtocol, ObservableObject {
     
     var spends: [Spend] = [] {
         willSet {
-            dayLimit = "\(Int32(periodLimit)! - DateManager.shared.costByDate(spendDict: DateManager.shared.gropedByDate(spends: newValue)))"
+            dayLimit = "\(Int32(periodLimit)! - DateManager.shared.costByDate(spends: newValue, date: Date()))"
         }
     }
     

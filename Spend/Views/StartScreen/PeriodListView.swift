@@ -15,6 +15,8 @@ struct PeriodListView: View {
     
     var body: some View {
         ZStack {
+            Color("BackgroundColor")
+                .ignoresSafeArea()
             VStack {
                 HStack(alignment: .firstTextBaseline) {
                     Text("Периоды")
@@ -23,9 +25,9 @@ struct PeriodListView: View {
                     Button(action: { isEditing.toggle() }, label: {
                         Text(isEditing ? "Готово" : "Изменить")
                             .font(.custom("Roboto-Light", size: 20))
-                            .foregroundColor(.black)
                     })
                 }
+                .foregroundColor(Color("DarkTextColor"))
                 .padding()
                 List {
                     Section(header: PeriodHeaderView(viewModel: PeriodHeaderViewModel(there: .active))){
@@ -41,7 +43,7 @@ struct PeriodListView: View {
                     }
                     .padding(.horizontal)
                     .padding(.vertical, 8)
-                    .background(Color.white)
+                    .background(Color("BackgroundColor"))
                     .listRowInsets(EdgeInsets())
                     Section(header: PeriodHeaderView(viewModel: PeriodHeaderViewModel(there: .completed))){
                         ForEach(viewModel.completedPeriods, id: \.self) { period in
@@ -56,14 +58,16 @@ struct PeriodListView: View {
                     }
                     .padding(.horizontal)
                     .padding(.vertical, 8)
-                    .background(Color.white)
+                    .background(Color("BackgroundColor"))
                     .listRowInsets(EdgeInsets())
                 }
                 .environment(\.editMode, .constant(isEditing ? EditMode.active : EditMode.inactive)).animation(Animation.default)
             }
             VStack {
                 Spacer()
-                CustomButton(systemName: "plus", color: .gray, foregroundColor: .white) {
+                CustomButton(systemName: "plus",
+                             color: Color("DarkTextColor"),
+                             foregroundColor: Color("BackgroundColor")) {
                     showingAddPeriodScreen.toggle()
                 }
                 .sheet(isPresented: $showingAddPeriodScreen) {

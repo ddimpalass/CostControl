@@ -40,7 +40,6 @@ class SpendStorageManager: NSObject, ObservableObject {
 
     
     func addSpend(period: Period, name: String, cost: String) {
-        
         let newSpend = Spend(context: spendFetchController.managedObjectContext)
         newSpend.name = name
         newSpend.cost = Int32(cost) ?? 0

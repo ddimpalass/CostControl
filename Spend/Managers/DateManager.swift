@@ -26,18 +26,22 @@ class DateManager {
     
     private init(){}
     
-    func gropedByDate(spends: [Spend]) -> [String: [Spend]] {
+    func gropedByDate(spends: [Spend]) -> Array<(key: Date, value: Array<Spend>)> {
+        let calendar = Calendar.current
         let sortedSpends = spends.sorted(by: {$0.date! > $1.date!})
-
-        let groupedByDate = Dictionary(grouping: sortedSpends) { (spend: Spend) -> String in
-            dateFormatterForDate.string(from: spend.date ?? Date())
+        
+        let groupedByDate = Dictionary(grouping: sortedSpends) { (spend: Spend) -> Date in
+            calendar.startOfDay(for: spend.date ?? Date())
         }
+        .sorted(by: {$0.key > $1.key})
+        
         return groupedByDate
     }
     
-    func costByDate(spendDict: [String: [Spend]]) -> Int32 {
-        guard let spendArrayInDate = spendDict[dateFormatterForDate.string(from: Date())] else { return 0 }
-        let costInDate = spendArrayInDate.map({$0.cost}).reduce(0, +)
+    func costByDate(spends: [Spend], date: Date) -> Int32 {
+        let calendar = Calendar.current
+        let spendsByDate = spends.filter{ calendar.startOfDay(for: $0.date!) == calendar.startOfDay(for: date)}
+        let costInDate = spendsByDate.map{ $0.cost }.reduce(0, +)
         return costInDate
     }
     

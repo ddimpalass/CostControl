@@ -15,13 +15,9 @@ struct CustomTextField: View {
         TextField(placeholder, text: $text)
             .font(.custom("Roboto-Light", size: 24))
             .padding(10)
-            .background(Color.white)
-            .foregroundColor(.black)
+            .background(Color("BackgroundColor"))
+            .foregroundColor(Color("DarkTextColor"))
             .cornerRadius(10)
-            .shadow(color: Color.init(.black),
-                    radius: 2,
-                    x: 0,
-                    y: 2)
     }
 }
 
