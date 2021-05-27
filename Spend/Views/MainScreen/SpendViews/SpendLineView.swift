@@ -17,12 +17,15 @@ struct SpendLineView: View {
                 VStack(alignment: .leading) {
                     Text(viewModel.name)
                         .font(.custom("Roboto-Light", size: 24))
+                        .lineLimit(2)
                     Text(viewModel.time)
                         .font(.custom("Roboto-Light", size: 14))
+                        .lineLimit(1)
                 }
                 Spacer()
                 Text(viewModel.cost).baselineOffset(-10)
                     .font(.custom("DIN Condensed Bold", size: 36))
+                    .lineLimit(1)
             }
             .padding()
             .foregroundColor(Color("DarkTextColor"))
@@ -38,7 +41,7 @@ struct SpendLineView: View {
                 }
             }
         .sheet(isPresented: $showSheet) {
-            AddSpendView(period: nil, spend: viewModel.selectedSpend)
+            AddSpendView(viewModel: AddSpendViewModel(period: nil, spend: viewModel.selectedSpend))
         }
     }
 }

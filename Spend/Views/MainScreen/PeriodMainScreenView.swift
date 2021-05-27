@@ -30,7 +30,7 @@ struct PeriodMainScreenView: View {
                     showingAddSpendScreen.toggle()
                 }
                 .sheet(isPresented: $showingAddSpendScreen) {
-                    AddSpendView(period: viewModel.period, spend: nil)
+                    AddSpendView(viewModel: AddSpendViewModel(period: viewModel.period, spend: nil))
                 }
             }
         }

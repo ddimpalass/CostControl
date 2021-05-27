@@ -12,13 +12,13 @@ protocol SpendHeaderViewModelProtocol {
     var dateString: String { get }
     var costSum: String { get }
     
-    init(date: Date, spendsByDate: [Spend])
+    init(date: Date, period: Period)
 }
 
 class SpendHeaderViewModel: SpendHeaderViewModelProtocol, ObservableObject {
     @Published var costSum: String = ""
     
-    var spends: [Spend] = [] {
+    @Published var spends: [Spend] = [] {
         willSet {
             costSum = "\(DateManager.shared.costByDate(spends: newValue, date: date))"
         }
@@ -32,12 +32,12 @@ class SpendHeaderViewModel: SpendHeaderViewModelProtocol, ObservableObject {
     
     private var cancellable = Set<AnyCancellable>()
     
-    required init(date: Date, spendsByDate: [Spend]) {
+    required init(date: Date, period: Period) {
         self.date = date
         let spendPublisher: AnyPublisher<[Spend], Never> = SpendStorageManager.shared.spends.eraseToAnyPublisher()
         spendPublisher
             .sink{ [unowned self] spends in
-                self.spends = spends.filter{ $0.period == spendsByDate.first?.period }
+                self.spends = spends.filter{ $0.period == period }
             }
             .store(in: &self.cancellable)
     }

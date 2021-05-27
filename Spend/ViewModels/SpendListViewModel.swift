@@ -23,7 +23,10 @@ class SpendListViewModel: SpendListViewModelProtocol, ObservableObject {
     
     private var cancellable = Set<AnyCancellable>()
     
+    var period: Period
+    
     required init(period: Period) {
+        self.period = period
         let spendPublisher: AnyPublisher<[Spend], Never> = SpendStorageManager.shared.spends.eraseToAnyPublisher()
         spendPublisher
             .sink{ [unowned self] spends in

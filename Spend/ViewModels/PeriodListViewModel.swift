@@ -32,5 +32,4 @@ class PeriodListViewModel: PeriodListViewModelProtocol, ObservableObject{
             }
             .store(in: &cancellable)
     }
-    
 }

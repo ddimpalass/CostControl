@@ -40,7 +40,7 @@ class DateManager {
     
     func costByDate(spends: [Spend], date: Date) -> Int32 {
         let calendar = Calendar.current
-        let spendsByDate = spends.filter{ calendar.startOfDay(for: $0.date!) == calendar.startOfDay(for: date)}
+        let spendsByDate = spends.filter{ calendar.startOfDay(for: $0.date ?? date) == calendar.startOfDay(for: date)}
         let costInDate = spendsByDate.map{ $0.cost }.reduce(0, +)
         return costInDate
     }

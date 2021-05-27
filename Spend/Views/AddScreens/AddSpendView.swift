@@ -9,37 +9,25 @@ import SwiftUI
 
 struct AddSpendView: View {
     @Environment(\.presentationMode) private var presentationMode
-
-    let period: Period?
-    let spend: Spend?
     
-    @State private var name: String = ""
-    @State private var cost: String = ""
-    
-    init(period: Period?, spend: Spend?) {
-        self.period = period
-        self.spend = spend
-        guard spend != nil else { return }
-        _name = State(wrappedValue: spend!.name!)
-        _cost = State(wrappedValue: String(spend!.cost))
-    }
+    @StateObject var viewModel: AddSpendViewModel
     
     var body: some View {
         VStack() {
-            CustomTextField(text: $name, placeholder: "Название траты")
-            CustomTextField(text: $cost, placeholder: "Сумма траты")
+            CustomTextField(text: $viewModel.name, placeholder: "Название траты")
+            CustomTextField(text: $viewModel.cost, placeholder: "Сумма траты")
                 .keyboardType(.numberPad)
-            CustomButton(systemName: "plus",
-                         color: Color("LightTextColor"),
+            CustomButton(systemName: viewModel.spendIsValid ? "plus" : "multiply",
+                         color: viewModel.spendIsValid ? Color("LightTextColor") : .red,
                          foregroundColor: Color("MainColor"),
                          action: {
-                presentationMode.wrappedValue.dismiss()
-                if spend != nil {
-                    SpendStorageManager.shared.updateSpend(spend: spend!, name: name, cost: cost)
-                } else if period != nil{
-                    SpendStorageManager.shared.addSpend(period: period!, name: name, cost: cost)
-                }
-            })
+                            if viewModel.spendIsValid {
+                                presentationMode.wrappedValue.dismiss()
+                                viewModel.spendAction()
+                            }
+                            presentationMode.wrappedValue.dismiss()
+                         })
+                .animation(.default)
             Spacer()
         }
         .padding()

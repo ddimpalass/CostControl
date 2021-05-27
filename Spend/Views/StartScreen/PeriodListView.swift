@@ -71,7 +71,7 @@ struct PeriodListView: View {
                     showingAddPeriodScreen.toggle()
                 }
                 .sheet(isPresented: $showingAddPeriodScreen) {
-                    AddPeriodView(period: nil)
+                    AddPeriodView(viewModel: AddPeriodViewModel(period: nil))
                 }
             }
         }

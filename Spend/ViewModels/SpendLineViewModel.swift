@@ -26,11 +26,11 @@ class SpendLineViewModel: SpendLineViewModelProtocol, ObservableObject {
     
     @Published var selectedSpend: Spend? = nil
     
-    var spend: Spend = Spend() {
+    @Published var spend: Spend? = nil {
         willSet {
-            name = newValue.name ?? "Название"
-            time = DateManager.shared.dateFormatterForTime.string(from: newValue.date ?? Date())
-            cost = "\(newValue.cost)"
+            name = newValue?.name ?? ""
+            time = DateManager.shared.dateFormatterForTime.string(from: newValue?.date ?? Date())
+            cost = "\(newValue?.cost ?? 0)"
         }
     }
 
@@ -40,7 +40,7 @@ class SpendLineViewModel: SpendLineViewModelProtocol, ObservableObject {
         let spendPublisher: AnyPublisher<[Spend], Never> = SpendStorageManager.shared.spends.eraseToAnyPublisher()
         spendPublisher
             .sink{ [unowned self] spends in
-                self.spend = spends.first{ $0 == spendIn } ?? Spend()
+                self.spend = spends.first{ $0 == spendIn }
             }
             .store(in: &self.cancellable)
     }

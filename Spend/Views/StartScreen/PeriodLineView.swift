@@ -19,11 +19,14 @@ struct PeriodLineView: View {
                 VStack(alignment: .leading){
                     Text(viewModel.name)
                         .font(.custom("Roboto-Light", size: 24))
+                        .lineLimit(2)
                     HStack(alignment: .lastTextBaseline) {
                         Text(viewModel.balance)
                             .font(.custom("DIN Condensed Bold", size: 36))
+                            .lineLimit(1)
                         Text(viewModel.limit)
                             .font(.custom("Roboto-Light", size: 24))
+                            .lineLimit(1)
                     }
                     .padding(.top, 4)
                 }
@@ -50,7 +53,7 @@ struct PeriodLineView: View {
             if viewModel.activeSheet == .open {
                 PeriodMainScreenView(viewModel: PeriodMainScreenViewModel(period: viewModel.selectedPeriod!))
             } else {
-                AddPeriodView(period: viewModel.selectedPeriod)
+                AddPeriodView(viewModel: AddPeriodViewModel(period: viewModel.selectedPeriod))
             }
 
         }

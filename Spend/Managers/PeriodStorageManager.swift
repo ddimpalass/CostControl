@@ -41,6 +41,7 @@ class PeriodStorageManager: NSObject, ObservableObject {
     func addPeriod(name: String, limit: String, numberOfDays: String) {
         
         let newPeriod = Period(context: periodFetchController.managedObjectContext)
+        newPeriod.id = UUID()
         newPeriod.name = name
         newPeriod.limit = Int32(limit) ?? 0
         newPeriod.startDate = Calendar.current.startOfDay(for: Date())

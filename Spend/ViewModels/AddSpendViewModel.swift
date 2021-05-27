@@ -8,28 +8,38 @@
 import Foundation
 
 protocol AddSpendViewModelProtocol {
-    func addSpend(period: Period, name: String, cost: String)
-    func updateSpend(spend: Spend, name: String, cost: String)
+    var name: String { get }
+    var cost: String { get }
     
-    init(period: Period, spend: Spend)
+    init(period: Period?, spend: Spend?)
+    
+    func spendAction()
 }
 
-class AddSpendViewModel: AddSpendViewModelProtocol {
+class AddSpendViewModel: AddSpendViewModelProtocol, ObservableObject {
     
-    func addSpend(period: Period, name: String, cost: String) {
-        SpendStorageManager.shared.addSpend(period: period, name: name, cost: cost)
+    @Published var name: String = ""
+    @Published var cost: String = ""
+    var spendIsValid: Bool {
+        name.count > 0 && cost.count > 0
     }
     
-    func updateSpend(spend: Spend, name: String, cost: String) {
-        SpendStorageManager.shared.updateSpend(spend: spend, name: name, cost: cost)
-    }
+    var period: Period? = nil
+    var spend: Spend? = nil
     
-    let period: Period?
-    let spend: Spend?
-    
-    required init(period: Period, spend: Spend) {
+    required init(period: Period?, spend: Spend?) {
         self.period = period
         self.spend = spend
+        guard spend != nil else { return }
+        self.name = spend!.name!
+        self.cost = "\(spend!.cost)"
     }
-
+    
+    func spendAction() {
+        if spend != nil {
+            SpendStorageManager.shared.updateSpend(spend: spend!, name: name, cost: cost)
+        } else if period != nil {
+            SpendStorageManager.shared.addSpend(period: period!, name: name, cost: cost)
+        }
+    }
 }

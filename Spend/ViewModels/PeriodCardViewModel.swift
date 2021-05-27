@@ -24,14 +24,14 @@ class PeriodCardViewModel: PeriodCardViewModelProtocol, ObservableObject {
     @Published var dayNow = ""
     @Published var dayCount = ""
     @Published var dayLimit = ""
-    @Published var periodLimit = "0"
+    @Published var periodLimit = ""
     
-    var period: Period = Period() {
+    var period: Period? = nil {
         willSet {
-            name = newValue.name ?? "Название"
-            dayNow = "\(DateManager.shared.dayInPeriod(start: newValue.startDate ?? Date(), end: Date()) + 1)"
-            dayCount = "/\(DateManager.shared.dayInPeriod(start: newValue.startDate!, end: newValue.endDate!))"
-            periodLimit = "\(newValue.limit/(DateManager.shared.dayInPeriod(start: newValue.startDate!, end: newValue.endDate!)))"
+            name = newValue?.name ?? "Название"
+            dayNow = "\(DateManager.shared.dayInPeriod(start: newValue?.startDate ?? Date(), end: Date()) + 1)"
+            dayCount = "/\(DateManager.shared.dayInPeriod(start: newValue?.startDate ?? Date(), end: newValue?.endDate ?? Date()))"
+            periodLimit = "\(newValue?.limit ?? 0/(DateManager.shared.dayInPeriod(start: newValue?.startDate ?? Date(), end: newValue?.endDate ?? Date())))"
         }
     }
     

@@ -14,14 +14,14 @@ struct SpendListView: View {
         VStack() {
             List {
                 ForEach(viewModel.spendsGroupByDate, id: \.key) { date, spends in
-                    Section(header: SpendHeaderView(viewModel: SpendHeaderViewModel(date: date, spendsByDate: spends))){
+                    Section(header: SpendHeaderView(viewModel: SpendHeaderViewModel(date: date, period: viewModel.period))){
                         ForEach(spends, id: \.self) { spend in
                             SpendLineView(viewModel: SpendLineViewModel(for: spend))
                         }
                         .onDelete(perform: { indexSet in
                             indexSet.forEach { index in
-                                let spend = spends[index]
-                                SpendStorageManager.shared.deleteSpend(spend: spend)
+                                let deleteSpend = spends[index]
+                                SpendStorageManager.shared.deleteSpend(spend: deleteSpend)
                             }
                         })
                     }
