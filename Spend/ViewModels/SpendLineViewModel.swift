@@ -26,7 +26,7 @@ class SpendLineViewModel: SpendLineViewModelProtocol, ObservableObject {
     
     @Published var selectedSpend: Spend? = nil
     
-    @Published var spend: Spend? = nil {
+    private var spend: Spend? = nil {
         willSet {
             name = newValue?.name ?? ""
             time = DateManager.shared.dateFormatterForTime.string(from: newValue?.date ?? Date())

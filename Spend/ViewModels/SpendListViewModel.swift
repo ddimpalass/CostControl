@@ -15,22 +15,22 @@ protocol SpendListViewModelProtocol {
 class SpendListViewModel: SpendListViewModelProtocol, ObservableObject {
     @Published var spendsGroupByDate: Array<(key: Date, value: Array<Spend>)> = []
     
-    @Published var spends: [Spend] = [] {
+    private var spends: [Spend] = [] {
         willSet {
             spendsGroupByDate = DateManager.shared.gropedByDate(spends: newValue)
         }
     }
     
-    private var cancellable = Set<AnyCancellable>()
-    
     var period: Period
     
-    required init(period: Period) {
-        self.period = period
+    private var cancellable = Set<AnyCancellable>()
+
+    required init(period value: Period) {
+        self.period = value
         let spendPublisher: AnyPublisher<[Spend], Never> = SpendStorageManager.shared.spends.eraseToAnyPublisher()
         spendPublisher
             .sink{ [unowned self] spends in
-                self.spends = spends.filter{ $0.period == period }
+                self.spends = spends.filter{ $0.period == value }
             }
             .store(in: &self.cancellable)
     }

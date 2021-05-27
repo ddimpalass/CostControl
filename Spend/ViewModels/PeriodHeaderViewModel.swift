@@ -24,9 +24,9 @@ class PeriodHeaderViewModel: PeriodHeaderViewModelProtocol, ObservableObject {
     @Published var status: String = ""
     @Published var count: String = ""
     
-    var there: Status
+    private var there: Status
     
-    var activePeriods: [Period] = [] {
+    private var activePeriods: [Period] = [] {
         willSet {
             guard there == .active else { return }
             if newValue.count > 0 {
@@ -39,7 +39,7 @@ class PeriodHeaderViewModel: PeriodHeaderViewModelProtocol, ObservableObject {
         }
     }
     
-    var completedPeriods: [Period] = [] {
+    private var completedPeriods: [Period] = [] {
         willSet {
             guard there == .completed else { return }
             if  newValue.count > 0 {

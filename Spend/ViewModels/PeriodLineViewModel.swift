@@ -41,9 +41,7 @@ class PeriodLineViewModel: PeriodLineViewModelProtocol, ObservableObject {
     }
     
     @Published var selectedPeriod: Period? = nil
-    
     @Published var showSheet: Bool = false
-    
     @Published var activeSheet: ActiveSheet? = .open
 
     private var period: Period

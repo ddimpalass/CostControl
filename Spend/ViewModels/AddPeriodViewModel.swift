@@ -21,11 +21,12 @@ class AddPeriodViewModel: AddPeriodViewModelProtocol, ObservableObject {
     @Published var name: String = ""
     @Published var limit: String = ""
     @Published var numberOfDays: String = ""
+    
     var periodIsValid: Bool {
         name.count > 0 && limit.count > 0 && numberOfDays.count > 0 && Int(limit) != 0 && Int(numberOfDays) != 0
     }
     
-    var period: Period? = nil
+    private var period: Period? = nil
     
     required init(period: Period?) {
         self.period = period

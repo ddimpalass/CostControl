@@ -26,7 +26,7 @@ class PeriodCardViewModel: PeriodCardViewModelProtocol, ObservableObject {
     @Published var dayLimit = ""
     @Published var periodLimit = ""
     
-    var period: Period? = nil {
+    private var period: Period? = nil {
         willSet {
             name = newValue?.name ?? "Название"
             dayNow = "\(DateManager.shared.dayInPeriod(start: newValue?.startDate ?? Date(), end: Date()) + 1)"
@@ -35,7 +35,7 @@ class PeriodCardViewModel: PeriodCardViewModelProtocol, ObservableObject {
         }
     }
     
-    var spends: [Spend] = [] {
+    private var spends: [Spend] = [] {
         willSet {
             dayLimit = "\(Int32(periodLimit)! - DateManager.shared.costByDate(spends: newValue, date: Date()))"
         }

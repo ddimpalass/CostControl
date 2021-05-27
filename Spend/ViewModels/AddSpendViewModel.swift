@@ -20,12 +20,13 @@ class AddSpendViewModel: AddSpendViewModelProtocol, ObservableObject {
     
     @Published var name: String = ""
     @Published var cost: String = ""
+    
     var spendIsValid: Bool {
         name.count > 0 && cost.count > 0
     }
     
-    var period: Period? = nil
-    var spend: Spend? = nil
+    private var period: Period? = nil
+    private var spend: Spend? = nil
     
     required init(period: Period?, spend: Spend?) {
         self.period = period

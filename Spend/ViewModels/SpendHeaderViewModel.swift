@@ -16,19 +16,20 @@ protocol SpendHeaderViewModelProtocol {
 }
 
 class SpendHeaderViewModel: SpendHeaderViewModelProtocol, ObservableObject {
-    @Published var costSum: String = ""
-    
-    @Published var spends: [Spend] = [] {
-        willSet {
-            costSum = "\(DateManager.shared.costByDate(spends: newValue, date: date))"
-        }
-    }
     
     var dateString: String {
         DateManager.shared.dateFormatterForDate.string(from: date)
     }
     
-    var date: Date
+    @Published var costSum: String = ""
+    
+    private var spends: [Spend] = [] {
+        willSet {
+            costSum = "\(DateManager.shared.costByDate(spends: newValue, date: date))"
+        }
+    }
+    
+    private var date: Date
     
     private var cancellable = Set<AnyCancellable>()
     
