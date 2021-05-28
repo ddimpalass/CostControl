@@ -11,6 +11,7 @@ protocol AddPeriodViewModelProtocol {
     var name: String { get }
     var limit: String { get }
     var numberOfDays: String { get }
+    var periodIsValid: Bool { get }
     
     init(period: Period?)
     

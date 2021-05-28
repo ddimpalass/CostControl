@@ -14,11 +14,8 @@ struct PeriodMainScreenView: View {
     
     var body: some View {
         ZStack {
-            Color("BackgroundColor")
-                .ignoresSafeArea()
             VStack(spacing: 0) {
                 PeriodCardView(viewModel: PeriodCardViewModel(period: viewModel.period))
-                    .frame(height: 270)
                 SpendListView(viewModel: SpendListViewModel(period: viewModel.period))
             }
             .ignoresSafeArea()

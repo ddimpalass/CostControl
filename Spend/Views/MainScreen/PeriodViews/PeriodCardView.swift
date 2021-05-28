@@ -11,55 +11,40 @@ struct PeriodCardView: View {
     @Environment(\.presentationMode) private var presentationMode
     
     @StateObject var viewModel: PeriodCardViewModel
-    
-    let gradient = Gradient(colors: [Color("MainColor"), Color("MainColorHelper")])
-    
+
     var body: some View {
-        HStack {
-            Spacer()
-            VStack {
-                Spacer()
-                HStack {
-                    Button(action: { presentationMode.wrappedValue.dismiss() }) {
-                        Image.init(systemName: "chevron.backward.circle")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(height: 30)
-                            .padding()
-                    }
-                    Spacer()
-                    Circle()
-                    Spacer()
-                    HStack(alignment: .firstTextBaseline, spacing: 0) {
-                        Text(viewModel.dayNow)
-                            .font(.custom("DIN Condensed Bold", size: 32))
-                            .padding(.top, 8)
-                        Text(viewModel.dayCount)
-                            .font(.custom("Roboto-Light", size: 16))
-                    }
-                    .frame(height: 30)
-                    .padding()
+        VStack {
+            HStack(spacing: 0) {
+                Button(action: { presentationMode.wrappedValue.dismiss() } ) {
+                    Image.init(systemName: "chevron.backward.circle")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 30)
                 }
-                .frame(height: 60)
-                .padding()
-                Text(viewModel.name)
-                    .font(.custom("Roboto-Light", size: 32))
+                Spacer()
                 HStack(alignment: .firstTextBaseline, spacing: 0) {
-                    Text(viewModel.dayLimit)
-                        .font(.custom("DIN Condensed Bold", size: 64))
-                        .padding(.top, 16)
-                    Text("/" + viewModel.periodLimit)
-                        .font(.custom("Roboto-Light", size: 24))
+                    Text(viewModel.dayNow)
+                        .font(.custom("DIN Condensed Bold", size: 32))
+                        .padding(.top, 8)
+                    Text(viewModel.dayCount)
+                        .font(.custom("Roboto-Light", size: 16))
                 }
             }
-            Spacer()
+            .padding(.top, 32)
+            Text(viewModel.name)
+                .font(.custom("Roboto-Light", size: 32))
+            HStack(alignment: .firstTextBaseline, spacing: 0) {
+                Text(viewModel.dayLimit)
+                    .font(.custom("DIN Condensed Bold", size: 64))
+                    .padding(.top)
+                Text("/" + viewModel.periodLimit)
+                    .font(.custom("Roboto-Light", size: 24))
+            }
         }
+        .padding(.horizontal)
+        .padding()
         .foregroundColor(Color("DarkTextColor"))
-        .padding(.vertical, 20)
-        .background(LinearGradient(gradient: gradient,
-                                   startPoint: .top,
-                                   endPoint: .bottom)
-        )
+        .background(LinearGradient.gradientWithMainColor)
         .cornerRadius(39, corners: .bottomLeft)
         .cornerRadius(39, corners: .bottomRight)
     }

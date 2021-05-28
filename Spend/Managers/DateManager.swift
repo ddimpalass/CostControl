@@ -38,18 +38,18 @@ class DateManager {
         return groupedByDate
     }
     
-    func costByDate(spends: [Spend], date: Date) -> Int32 {
+    func costByDate(spends: [Spend], date: Date?) -> Int32 {
         let calendar = Calendar.current
-        let spendsByDate = spends.filter{ calendar.startOfDay(for: $0.date ?? date) == calendar.startOfDay(for: date)}
+        let spendsByDate = spends.filter{ calendar.startOfDay(for: $0.date ?? Date()) == calendar.startOfDay(for: date ?? Date())}
         let costInDate = spendsByDate.map{ $0.cost }.reduce(0, +)
         return costInDate
     }
     
-    func dayInPeriod(start: Date, end: Date) -> Int32 {
+    func dayInPeriod(start: Date?, end: Date?) -> Int32 {
         let calendar = Calendar.current
 
-        let from = calendar.startOfDay(for: start)
-        let to = calendar.startOfDay(for: end)
+        let from = calendar.startOfDay(for: start ?? Date())
+        let to = calendar.startOfDay(for: end ?? Date())
 
         let components = calendar.dateComponents([.day], from: from, to: to)
         

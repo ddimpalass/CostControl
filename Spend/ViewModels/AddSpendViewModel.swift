@@ -10,6 +10,7 @@ import Foundation
 protocol AddSpendViewModelProtocol {
     var name: String { get }
     var cost: String { get }
+    var spendIsValid: Bool { get }
     
     init(period: Period?, spend: Spend?)
     

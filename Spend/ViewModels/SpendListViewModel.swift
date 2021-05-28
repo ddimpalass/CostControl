@@ -9,6 +9,8 @@ import Foundation
 import Combine
 
 protocol SpendListViewModelProtocol {
+    var spendsGroupByDate: Array<(key: Date, value: Array<Spend>)> { get }
+    
     init(period: Period)
 }
 
@@ -30,7 +32,8 @@ class SpendListViewModel: SpendListViewModelProtocol, ObservableObject {
         let spendPublisher: AnyPublisher<[Spend], Never> = SpendStorageManager.shared.spends.eraseToAnyPublisher()
         spendPublisher
             .sink{ [unowned self] spends in
-                self.spends = spends.filter{ $0.period == value }
+                self.spends = spends
+                    .filter{ $0.period == value }
             }
             .store(in: &self.cancellable)
     }

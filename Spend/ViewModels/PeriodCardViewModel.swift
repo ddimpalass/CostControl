@@ -29,9 +29,9 @@ class PeriodCardViewModel: PeriodCardViewModelProtocol, ObservableObject {
     private var period: Period? = nil {
         willSet {
             name = newValue?.name ?? "Название"
-            dayNow = "\(DateManager.shared.dayInPeriod(start: newValue?.startDate ?? Date(), end: Date()) + 1)"
-            dayCount = "/\(DateManager.shared.dayInPeriod(start: newValue?.startDate ?? Date(), end: newValue?.endDate ?? Date()))"
-            periodLimit = "\(newValue?.limit ?? 0/(DateManager.shared.dayInPeriod(start: newValue?.startDate ?? Date(), end: newValue?.endDate ?? Date())))"
+            dayNow = "День \(DateManager.shared.dayInPeriod(start: newValue?.startDate, end: Date()) + 1)"
+            dayCount = "/\(DateManager.shared.dayInPeriod(start: newValue?.startDate, end: newValue?.endDate))"
+            periodLimit = "\((newValue?.limit ?? 0)/(DateManager.shared.dayInPeriod(start: newValue?.startDate, end: newValue?.endDate)))"
         }
     }
     
