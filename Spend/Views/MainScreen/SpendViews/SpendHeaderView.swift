@@ -9,17 +9,18 @@ import SwiftUI
 
 struct SpendHeaderView: View {
     @StateObject var viewModel: SpendHeaderViewModel
-
+    
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             Text(viewModel.dateString)
-                .font(.custom("Roboto-Light", size: 20))
+                .font(.custom("Roboto-Light", size: 18))
             Spacer()
             Text(viewModel.costSum)
-                .font(.custom("Roboto-Light", size: 24))
+                .font(.custom("Roboto-Light", size: 20))
         }
-        .foregroundColor(Color("DarkTextColor"))
+        .foregroundColor(Color("TextColor"))
         .padding(.horizontal)
+        .padding(.bottom, -8)
     }
 }
 

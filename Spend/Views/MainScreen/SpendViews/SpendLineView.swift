@@ -10,11 +10,11 @@ import SwiftUI
 struct SpendLineView: View {
     @StateObject var viewModel: SpendLineViewModel
     @State var showSheet = false
-
+    
     var body: some View {
-        Button(action: {}, label: {
+        Button(action: {}) {
             HStack {
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 4) {
                     Text(viewModel.name)
                         .font(.custom("Roboto-Light", size: 24))
                         .lineLimit(2)
@@ -28,18 +28,20 @@ struct SpendLineView: View {
                     .lineLimit(1)
             }
             .padding()
-            .foregroundColor(Color("DarkTextColor"))
+            .foregroundColor(Color("TextColor"))
             .background(LinearGradient.gradientWithMainColor)
             .cornerRadius(8)
-        })
+            .shadows()
+            .padding(4)
+        }
         .contextMenu {
-                Button {
-                    viewModel.selectSpendButtonPressed()
-                    showSheet.toggle()
-                } label: {
-                    Label("Изменить", systemImage: "ellipsis.circle")
-                }
+            Button {
+                viewModel.selectSpendButtonPressed()
+                showSheet.toggle()
+            } label: {
+                Label("Изменить", systemImage: "ellipsis.circle")
             }
+        }
         .sheet(isPresented: $showSheet) {
             AddSpendView(viewModel: AddSpendViewModel(period: nil, spend: viewModel.selectedSpend))
         }

@@ -8,10 +8,15 @@
 import Foundation
 
 protocol PeriodMainScreenViewModelProtocol {
+    var periodIsEnd: Bool { get }
+    
     init(period: Period)
 }
 
 class PeriodMainScreenViewModel: PeriodMainScreenViewModelProtocol, ObservableObject {
+    var periodIsEnd: Bool {
+        DateManager.shared.periodIsEnd(end: period.endDate)
+    }
 
     var period: Period
     

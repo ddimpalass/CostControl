@@ -14,10 +14,12 @@ struct CustomTextField: View {
     var body: some View {
         TextField(placeholder, text: $text)
             .font(.custom("Roboto-Light", size: 24))
-            .padding(10)
-            .background(Color("BackgroundColor"))
-            .foregroundColor(Color("DarkTextColor"))
-            .cornerRadius(10)
+            .padding()
+            .background(LinearGradient.gradientWithMainColor)
+            .foregroundColor(Color("TextColor"))
+            .cornerRadius(8)
+            .shadows()
+            .padding(8)
     }
 }
 

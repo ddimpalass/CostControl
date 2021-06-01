@@ -9,25 +9,27 @@ import SwiftUI
 
 struct PeriodListView: View {
     @StateObject private var viewModel = PeriodListViewModel()
-    
     @State var showingAddPeriodScreen = false
-    @State var isEditing = false
+    
+    init() {
+        UITableView.appearance().separatorStyle = .none
+        UITableViewCell.appearance().backgroundColor = UIColor(named: "BackgroundColor")
+        UITableView.appearance().backgroundColor = UIColor(named: "BackgroundColor")
+        UITableView.appearance().showsVerticalScrollIndicator = false
+    }
     
     var body: some View {
         ZStack {
             Color("BackgroundColor")
                 .ignoresSafeArea()
             VStack {
-                HStack(alignment: .firstTextBaseline) {
+                HStack() {
+                    Spacer()
                     Text("Периоды")
                         .font(.custom("Roboto-Light", size: 32))
+                        .foregroundColor(Color("AccentColor"))
                     Spacer()
-                    Button(action: { isEditing.toggle() }, label: {
-                        Text(isEditing ? "Готово" : "Изменить")
-                            .font(.custom("Roboto-Light", size: 20))
-                    })
                 }
-                .foregroundColor(Color("DarkTextColor"))
                 .padding()
                 List {
                     Section(header: PeriodHeaderView(viewModel: PeriodHeaderViewModel(there: .active))){
@@ -61,16 +63,15 @@ struct PeriodListView: View {
                     .background(Color("BackgroundColor"))
                     .listRowInsets(EdgeInsets())
                 }
-                .environment(\.editMode, .constant(isEditing ? EditMode.active : EditMode.inactive)).animation(Animation.default)
             }
             VStack {
                 Spacer()
                 CustomButton(systemName: "plus",
-                             color: Color("DarkTextColor"),
-                             foregroundColor: Color("BackgroundColor")) {
+                             color: Color("BackgroundColor"),
+                             foregroundColor: Color("AccentColor")) {
                     showingAddPeriodScreen.toggle()
                 }
-                .sheet(isPresented: $showingAddPeriodScreen) {
+                .fullScreenCover(isPresented: $showingAddPeriodScreen) {
                     AddPeriodView(viewModel: AddPeriodViewModel(period: nil))
                 }
             }

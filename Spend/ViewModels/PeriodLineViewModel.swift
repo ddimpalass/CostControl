@@ -54,5 +54,4 @@ class PeriodLineViewModel: PeriodLineViewModelProtocol, ObservableObject {
         selectedPeriod = period
         showSheet.toggle()
     }
-    
 }

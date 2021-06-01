@@ -55,4 +55,13 @@ class DateManager {
         
         return Int32(components.day ?? 1)
     }
+    
+    func periodIsEnd(end: Date?) -> Bool {
+        let calendar = Calendar.current
+        
+        let endDate = calendar.startOfDay(for: end ?? Date())
+        
+        guard endDate > Date() else { return true }
+        return false
+    }
 }

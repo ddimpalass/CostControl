@@ -25,19 +25,31 @@ class PeriodCardViewModel: PeriodCardViewModelProtocol, ObservableObject {
     @Published var dayCount = ""
     @Published var dayLimit = ""
     @Published var periodLimit = ""
+    @Published var periodIsEnd: Bool = false
     
     private var period: Period? = nil {
         willSet {
             name = newValue?.name ?? "Название"
-            dayNow = "День \(DateManager.shared.dayInPeriod(start: newValue?.startDate, end: Date()) + 1)"
-            dayCount = "/\(DateManager.shared.dayInPeriod(start: newValue?.startDate, end: newValue?.endDate))"
-            periodLimit = "\((newValue?.limit ?? 0)/(DateManager.shared.dayInPeriod(start: newValue?.startDate, end: newValue?.endDate)))"
+            periodIsEnd = DateManager.shared.periodIsEnd(end: newValue?.endDate)
+            if periodIsEnd {
+                dayNow = "Завершён"
+                dayCount = ""
+                periodLimit = "\(newValue?.limit ?? 0)"
+            } else {
+                dayNow = "День \(DateManager.shared.dayInPeriod(start: newValue?.startDate, end: Date()) + 1)"
+                dayCount = "/\(DateManager.shared.dayInPeriod(start: newValue?.startDate, end: newValue?.endDate))"
+                periodLimit = "\((newValue?.limit ?? 0)/(DateManager.shared.dayInPeriod(start: newValue?.startDate, end: newValue?.endDate)))"
+            }
         }
     }
     
     private var spends: [Spend] = [] {
         willSet {
-            dayLimit = "\(Int32(periodLimit)! - DateManager.shared.costByDate(spends: newValue, date: Date()))"
+            if periodIsEnd {
+                dayLimit = "\(Int32(periodLimit)! - newValue.map({$0.cost}).reduce(0, +))"
+            } else {
+                dayLimit = "\(Int32(periodLimit)! - DateManager.shared.costByDate(spends: newValue, date: Date()))"
+            }
         }
     }
     

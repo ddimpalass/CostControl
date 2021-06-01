@@ -75,7 +75,6 @@ class PeriodStorageManager: NSObject, ObservableObject {
     
     func deletePeriod(period: Period) {
         periodFetchController.managedObjectContext.delete(period)
-        period.removeFromSpends(period.spends ?? NSSet())
         
         do {
             try periodFetchController.managedObjectContext.save()

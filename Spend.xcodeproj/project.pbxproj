@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		186478CC2664A947002096BB /* View + Shadows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186478CB2664A947002096BB /* View + Shadows.swift */; };
 		189EA230264EAE3500F503DB /* SpendListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA22F264EAE3500F503DB /* SpendListViewModel.swift */; };
 		189EA23426501BE200F503DB /* PeriodMainScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA23326501BE200F503DB /* PeriodMainScreenViewModel.swift */; };
 		189EA23A26501E1400F503DB /* PeriodListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA23926501E1400F503DB /* PeriodListViewModel.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		186478CB2664A947002096BB /* View + Shadows.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Shadows.swift"; sourceTree = "<group>"; };
 		189EA22F264EAE3500F503DB /* SpendListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendListViewModel.swift; sourceTree = "<group>"; };
 		189EA23326501BE200F503DB /* PeriodMainScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodMainScreenViewModel.swift; sourceTree = "<group>"; };
 		189EA23926501E1400F503DB /* PeriodListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodListViewModel.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		18CA573A2654FFD300277F89 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				2F3198B626468CA000836ECF /* PersistenceController.swift */,
 				18CA573B2654FFFA00277F89 /* PeriodStorageManager.swift */,
 				18CA574C2657EB5A00277F89 /* SpendStorageManager.swift */,
 				18CA57412656A1A700277F89 /* DateManager.swift */,
@@ -150,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				18CA5782265E29D200277F89 /* LinearGradient + MainColor.swift */,
+				186478CB2664A947002096BB /* View + Shadows.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -226,7 +230,6 @@
 		2F3198C426468D2000836ECF /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2F3198B626468CA000836ECF /* PersistenceController.swift */,
 				2F3198B826468CA000836ECF /* Spend.xcdatamodeld */,
 				2F3198E22646D2BE00836ECF /* Spend+CoreDataClass.swift */,
 				2F3198E32646D2BE00836ECF /* Spend+CoreDataProperties.swift */,
@@ -369,6 +372,7 @@
 				2F3198D32646989100836ECF /* PeriodCardView.swift in Sources */,
 				2F3198DD2646A73200836ECF /* AddPeriodView.swift in Sources */,
 				2F3198DF2646AB0E00836ECF /* PeriodLineView.swift in Sources */,
+				186478CC2664A947002096BB /* View + Shadows.swift in Sources */,
 				18CA57582658325E00277F89 /* AddSpendViewModel.swift in Sources */,
 				2F3198E92646D2BE00836ECF /* Period+CoreDataProperties.swift in Sources */,
 				189EA230264EAE3500F503DB /* SpendListViewModel.swift in Sources */,

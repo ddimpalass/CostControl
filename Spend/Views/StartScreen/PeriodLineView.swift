@@ -9,9 +9,11 @@ import SwiftUI
 
 struct PeriodLineView: View {
     @StateObject var viewModel: PeriodLineViewModel
-
+    @State var isPressed: Bool = false
+    
     var body: some View {
         Button(action: {
+            isPressed.toggle()
             viewModel.activeSheet = .open
             viewModel.selectPeriodButtonPressed()
         }){
@@ -20,26 +22,32 @@ struct PeriodLineView: View {
                     Text(viewModel.name)
                         .font(.custom("Roboto-Light", size: 24))
                         .lineLimit(2)
-                    HStack(alignment: .lastTextBaseline) {
+                    HStack(alignment: .lastTextBaseline, spacing: 0) {
                         Text(viewModel.balance)
                             .font(.custom("DIN Condensed Bold", size: 36))
                             .lineLimit(1)
                         Text(viewModel.limit)
-                            .font(.custom("Roboto-Light", size: 24))
+                            .font(.custom("Roboto-Light", size: 20))
                             .lineLimit(1)
                     }
                     .padding(.top, 4)
                 }
                 Spacer()
-                Image(systemName: "chevron.right.circle")
+                Image(systemName: "chevron.right")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 30, height: 30)
+                    .padding()
+                    .background(LinearGradient.gradientWithMainColor)
+                    .cornerRadius(4)
+                    .shadows()
             }
             .padding()
-            .foregroundColor(Color("DarkTextColor"))
+            .foregroundColor(Color("TextColor"))
             .background(LinearGradient.gradientWithMainColor)
             .cornerRadius(8)
+            .shadows()
+            .padding(4)
         }
         .contextMenu {
             Button {
@@ -55,7 +63,6 @@ struct PeriodLineView: View {
             } else {
                 AddPeriodView(viewModel: AddPeriodViewModel(period: viewModel.selectedPeriod))
             }
-
         }
     }
 }

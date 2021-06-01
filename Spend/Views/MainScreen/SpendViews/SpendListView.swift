@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SpendListView: View {
     @StateObject var viewModel: SpendListViewModel
-
+    
     var body: some View {
         VStack() {
             List {

@@ -1,7 +1,18 @@
 {
   "images" : [
     {
-      "filename" : "Group 2-2.png",
+      "filename" : "Artboard.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "filename" : "Artboard-1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +23,23 @@
           "value" : "dark"
         }
       ],
-      "filename" : "darkLogo-2.png",
+      "filename" : "Artboard1.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Group 2-1.png",
+      "filename" : "Artboard@2x.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "filename" : "Artboard@2x-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,12 +50,23 @@
           "value" : "dark"
         }
       ],
-      "filename" : "darkLogo-1.png",
+      "filename" : "Artboard1@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Group 2.png",
+      "filename" : "Artboard@3x.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "light"
+        }
+      ],
+      "filename" : "Artboard@3x-1.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -44,7 +77,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "darkLogo.png",
+      "filename" : "Artboard1@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -52,8 +85,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "preserves-vector-representation" : true
   }
 }
