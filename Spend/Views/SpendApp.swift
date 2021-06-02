@@ -9,10 +9,15 @@ import SwiftUI
 
 @main
 struct SpendApp: App {
-
+    let isFirstLaunch = UserDefaults.isFirstLaunch()
+    
     var body: some Scene {
         WindowGroup {
-            PeriodListView()
+            if isFirstLaunch {
+                FirstLaunchView()
+            } else {
+                PeriodListView()
+            }
         }
     }
 }

@@ -16,6 +16,10 @@
 		189EA24826529C4A00F503DB /* SpendLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA24726529C4A00F503DB /* SpendLineViewModel.swift */; };
 		189EA2562653927800F503DB /* PeriodLineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA2552653927800F503DB /* PeriodLineViewModel.swift */; };
 		189EA25A2653930400F503DB /* PeriodCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189EA2592653930400F503DB /* PeriodCardViewModel.swift */; };
+		18C62DBC266765D200248E07 /* UserDefaults+isFirstLaunch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C62DBB266765D200248E07 /* UserDefaults+isFirstLaunch.swift */; };
+		18C62DBF266766D900248E07 /* FirstLaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C62DBE266766D900248E07 /* FirstLaunchView.swift */; };
+		18C62DC22667774E00248E07 /* FirstLaunchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C62DC12667774E00248E07 /* FirstLaunchViewModel.swift */; };
+		18C62DC7266780BA00248E07 /* FirstLaunchDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C62DC6266780BA00248E07 /* FirstLaunchDataManager.swift */; };
 		18CA573C2654FFFA00277F89 /* PeriodStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA573B2654FFFA00277F89 /* PeriodStorageManager.swift */; };
 		18CA57422656A1A700277F89 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA57412656A1A700277F89 /* DateManager.swift */; };
 		18CA574D2657EB5A00277F89 /* SpendStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18CA574C2657EB5A00277F89 /* SpendStorageManager.swift */; };
@@ -58,6 +62,10 @@
 		189EA24726529C4A00F503DB /* SpendLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendLineViewModel.swift; sourceTree = "<group>"; };
 		189EA2552653927800F503DB /* PeriodLineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodLineViewModel.swift; sourceTree = "<group>"; };
 		189EA2592653930400F503DB /* PeriodCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodCardViewModel.swift; sourceTree = "<group>"; };
+		18C62DBB266765D200248E07 /* UserDefaults+isFirstLaunch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+isFirstLaunch.swift"; sourceTree = "<group>"; };
+		18C62DBE266766D900248E07 /* FirstLaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchView.swift; sourceTree = "<group>"; };
+		18C62DC12667774E00248E07 /* FirstLaunchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchViewModel.swift; sourceTree = "<group>"; };
+		18C62DC6266780BA00248E07 /* FirstLaunchDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstLaunchDataManager.swift; sourceTree = "<group>"; };
 		18CA573B2654FFFA00277F89 /* PeriodStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeriodStorageManager.swift; sourceTree = "<group>"; };
 		18CA57412656A1A700277F89 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		18CA574C2657EB5A00277F89 /* SpendStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpendStorageManager.swift; sourceTree = "<group>"; };
@@ -111,6 +119,15 @@
 			path = PeriodViews;
 			sourceTree = "<group>";
 		};
+		18C62DC42667775A00248E07 /* FirstLaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				18C62DBE266766D900248E07 /* FirstLaunchView.swift */,
+				18C62DC12667774E00248E07 /* FirstLaunchViewModel.swift */,
+			);
+			path = FirstLaunchScreen;
+			sourceTree = "<group>";
+		};
 		18CA573A2654FFD300277F89 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -118,6 +135,7 @@
 				18CA573B2654FFFA00277F89 /* PeriodStorageManager.swift */,
 				18CA574C2657EB5A00277F89 /* SpendStorageManager.swift */,
 				18CA57412656A1A700277F89 /* DateManager.swift */,
+				18C62DC6266780BA00248E07 /* FirstLaunchDataManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -154,6 +172,7 @@
 			children = (
 				18CA5782265E29D200277F89 /* LinearGradient + MainColor.swift */,
 				186478CB2664A947002096BB /* View + Shadows.swift */,
+				18C62DBB266765D200248E07 /* UserDefaults+isFirstLaunch.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -219,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				2F3198AD26468C9F00836ECF /* SpendApp.swift */,
+				18C62DC42667775A00248E07 /* FirstLaunchScreen */,
 				2F3198D12646986E00836ECF /* StartScreen */,
 				18CA5769265D1B2C00277F89 /* MainScreen */,
 				2F3198D92646A70700836ECF /* AddScreens */,
@@ -359,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F3198E62646D2BE00836ECF /* Spend+CoreDataClass.swift in Sources */,
+				18C62DC22667774E00248E07 /* FirstLaunchViewModel.swift in Sources */,
 				2F3198BA26468CA000836ECF /* Spend.xcdatamodeld in Sources */,
 				2F3198D526469E1200836ECF /* PeriodMainScreenView.swift in Sources */,
 				189EA2562653927800F503DB /* PeriodLineViewModel.swift in Sources */,
@@ -374,10 +395,13 @@
 				2F3198DF2646AB0E00836ECF /* PeriodLineView.swift in Sources */,
 				186478CC2664A947002096BB /* View + Shadows.swift in Sources */,
 				18CA57582658325E00277F89 /* AddSpendViewModel.swift in Sources */,
+				18C62DC7266780BA00248E07 /* FirstLaunchDataManager.swift in Sources */,
 				2F3198E92646D2BE00836ECF /* Period+CoreDataProperties.swift in Sources */,
 				189EA230264EAE3500F503DB /* SpendListViewModel.swift in Sources */,
+				18C62DBF266766D900248E07 /* FirstLaunchView.swift in Sources */,
 				2F3198E82646D2BE00836ECF /* Period+CoreDataClass.swift in Sources */,
 				18CA5766265BF28700277F89 /* PeriodHeaderView.swift in Sources */,
+				18C62DBC266765D200248E07 /* UserDefaults+isFirstLaunch.swift in Sources */,
 				2F3198CE2646946000836ECF /* SpendLineView.swift in Sources */,
 				2F3198AE26468C9F00836ECF /* SpendApp.swift in Sources */,
 				18CA573C2654FFFA00277F89 /* PeriodStorageManager.swift in Sources */,
