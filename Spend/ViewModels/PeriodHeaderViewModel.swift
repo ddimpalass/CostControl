@@ -33,7 +33,7 @@ class PeriodHeaderViewModel: PeriodHeaderViewModelProtocol, ObservableObject {
                 status = "Активные"
                 count = "\(newValue.count)"
             } else {
-                status = "Добавьте период"
+                status = "Добавь период"
                 count = ""
             }
         }

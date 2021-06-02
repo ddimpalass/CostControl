@@ -28,6 +28,7 @@ struct FirstLaunchView: View {
                     }
                 }
                 .tabViewStyle(PageTabViewStyle())
+                .animation(.default)
                 CustomButton(systemName: viewModel.isEnd ? "multiply" : "chevron.right",
                              color: viewModel.isEnd ? Color("AccentColor") : Color("BackgroundColor"),
                              foregroundColor: viewModel.isEnd ? Color("BackgroundColor") : Color("AccentColor")) {
