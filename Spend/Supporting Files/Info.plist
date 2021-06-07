@@ -4,6 +4,8 @@
 <dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>CostControl</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -34,12 +36,12 @@
 	<true/>
 	<key>UILaunchScreen</key>
 	<dict>
+		<key>UIColorName</key>
+		<string>launchScreenBackground</string>
 		<key>UIImageName</key>
 		<string>launchScreenLogo</string>
 		<key>UIImageRespectsSafeAreaInsets</key>
 		<false/>
-		<key>UIColorName</key>
-		<string>launchScreenBackground</string>
 	</dict>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
